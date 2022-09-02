@@ -1,9 +1,9 @@
 import MovieCard from "../movie-card/movie-card";
 
 interface MainScreenProps {
-  title: string;
-  genres:string;
-  date: number;
+  title: string,
+  genres:string,
+  date: number
 }
 function MainScreen(props:MainScreenProps): JSX.Element {
   return (

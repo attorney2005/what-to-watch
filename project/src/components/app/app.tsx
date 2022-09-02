@@ -6,7 +6,7 @@ type AppScreenProps = {
   date: number,
 }
 function App({title, genres, date}: AppScreenProps): JSX.Element {
-  return <MainScreen title={'title'} genres={'genres'} date={date}/>;
+  return <MainScreen title={title} genres={genres} date={date}/>;
 }
 
 export default App;
