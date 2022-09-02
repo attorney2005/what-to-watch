@@ -1,7 +1,7 @@
 import MovieCard from "../movie-card/movie-card";
 
 interface MainScreenProps {
-  name: string;
+  title: string;
   genres:string;
   date: number;
 }
@@ -45,7 +45,7 @@ function MainScreen(props:MainScreenProps): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">{props.name}</h2>
+              <h2 className="film-card__title">{props.title}</h2>
               <p className="film-card__meta">
                 <span className="film-card__genre">{props.genres}</span>
                 <span className="film-card__year">{props.date}</span>
