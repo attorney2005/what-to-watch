@@ -17,7 +17,7 @@ function SignInMessage(): JSX.Element {
       <div className="sign-in user-page__content">
         <form action="#" className="sign-in__form">
           <div className="sign-in__message">
-            <p>We can’t recognize this email <br> and password combination. Please try again.</p>
+            <p>We can’t recognize this email <br></br> and password combination. Please try again.</p>
           </div>
           <div className="sign-in__fields">
             <div className="sign-in__field">
@@ -51,7 +51,7 @@ function SignInMessage(): JSX.Element {
         </div>
       </footer>
     </div>
-  )
+)
 }
 
 export default SignInMessage
