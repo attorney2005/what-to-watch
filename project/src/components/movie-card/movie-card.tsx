@@ -1,5 +1,7 @@
+import {useParams} from 'react-router-dom';
 
 function MovieCard(): JSX.Element {
+  // const params = useParams();
   return (
     <article className="small-film-card catalog__films-card">
       <div className="small-film-card__image">
