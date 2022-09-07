@@ -24,24 +24,24 @@ function App({title, genres, date}: AppScreenProps): JSX.Element {
     <BrowserRouter>
       <Routes>
         <Route
-          path={AppRoute.Main}
-          element={<Layout/>}
-        />
-        <Route index element={<MainScreen title={title} genres={genres} date={date}/>}/>;
-        <Route path={AppRoute.Sign_in} element={<SignIn/>}/>
-        <Route path={AppRoute.MyList} element={<MyList/>}/>
-        <Route path={AppRoute.Film} element={<MovieCard/>}/>
-        <Route path={AppRoute.Add_Review} element={<AddReview/>}/>
-        <Route path={AppRoute.Player} element={<Player/>}/>
-        <Route
-          path={AppRoute.MyList}
-          element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-              <MyList/>
-            </PrivateRoute>
-          }
-        />
-        <Route path="*" element={<NotFound/>}/>
+          path={'/'}
+          element={<Layout/>}>
+          <Route index element={<MainScreen title={title} genres={genres} date={date}/>}/>;
+          <Route path={AppRoute.Sign_in} element={<SignIn/>}/>
+          <Route path={AppRoute.MyList} element={<MyList/>}/>
+          <Route path={AppRoute.Film} element={<MovieCard/>}/>
+          <Route path={AppRoute.Add_Review} element={<AddReview/>}/>
+          <Route path={AppRoute.Player} element={<Player/>}/>
+          <Route
+            path={AppRoute.MyList}
+            element={
+              <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
+                <MyList/>
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<NotFound/>}/>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
