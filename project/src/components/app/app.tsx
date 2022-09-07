@@ -18,14 +18,14 @@ type AppScreenProps = {
 }
 
 function App({films}: AppScreenProps): JSX.Element {
-
+  const [firstfilm] = films;
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={'/'}
           element={<Layout/>}>
-          <Route index element={<MainScreen films = {films}/>}/>;
+          <Route index element={<MainScreen films = {firstfilm as Films}/>}/>;
           <Route path={AppRoute.Sign_in} element={<SignIn/>}/>
           <Route path={AppRoute.MyList} element={<MyList/>}/>
           <Route path={AppRoute.Film} element={<MovieCard films={films}/>}/>

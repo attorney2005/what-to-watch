@@ -7,7 +7,7 @@ interface MainScreenProps {
 }
 function MainScreen(props:MainScreenProps): JSX.Element {
   const {films} = props;
-  const {title, date, genres} = films;
+  const {title, date, genres, id, src} = films;
   return (
     <div>
       <section className="film-card">
@@ -15,7 +15,6 @@ function MainScreen(props:MainScreenProps): JSX.Element {
           <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
         </div>
         <h1 className="visually-hidden">WTW</h1>
-        <Header/>
         <div className="film-card__wrap">
           <div className="film-card__info">
             <div className="film-card__poster">
@@ -25,10 +24,10 @@ function MainScreen(props:MainScreenProps): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">{title}</h2>
+              <h2 className="film-card__title">{films.title}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{genres}</span>
-                <span className="film-card__year">{date}</span>
+                <span className="film-card__genre">{films.genres}</span>
+                <span className="film-card__year">{films.date}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -56,7 +55,7 @@ function MainScreen(props:MainScreenProps): JSX.Element {
 
           <ul className="catalog__genres-list">
             <li className="catalog__genres-item catalog__genres-item--active">
-              <a href="#" className="catalog__genres-link">{genres}</a>
+              <a href="#" className="catalog__genres-link">{films.genres}</a>
             </li>
           </ul>
 
@@ -87,20 +86,6 @@ function MainScreen(props:MainScreenProps): JSX.Element {
             <button className="catalog__button" type="button">Show more</button>
           </div>
         </section>
-
-        <footer className="page-footer">
-          <div className="logo">
-            <a className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
       </div>
     </div>
   );
