@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app';
+import {films} from "./mocks/films";
 
 const MovieInform =
   {
@@ -15,6 +16,7 @@ ReactDOM.render(
     title = {MovieInform.title}
     date = {MovieInform.date}
     genres = {MovieInform.genres}
+    films = {films}
     />
   </React.StrictMode>,
   document.getElementById('root'));

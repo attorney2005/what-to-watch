@@ -10,15 +10,17 @@ import Player from "../player/player";
 import NotFound from "../not-found/not-found";
 import Layout from "../layout/layout";
 // import {useAppSelector} from '../hooks';
+import {Films} from '../../types/films';
 
 
 type AppScreenProps = {
-  title: string,
-  genres: string,
-  date: number,
+  title: string;
+  genres: string;
+  date: number;
+  films: Films;
 }
 
-function App({title, genres, date}: AppScreenProps): JSX.Element {
+function App({title, genres, date, films}: AppScreenProps): JSX.Element {
 
   return (
     <BrowserRouter>
