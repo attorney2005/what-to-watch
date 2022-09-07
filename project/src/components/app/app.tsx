@@ -14,13 +14,10 @@ import {Films} from '../../types/films';
 
 
 type AppScreenProps = {
-  title: string;
-  genres: string;
-  date: number;
   films: Films;
 }
 
-function App({title, genres, date, films}: AppScreenProps): JSX.Element {
+function App({films}: AppScreenProps): JSX.Element {
 
   return (
     <BrowserRouter>
@@ -28,10 +25,10 @@ function App({title, genres, date, films}: AppScreenProps): JSX.Element {
         <Route
           path={'/'}
           element={<Layout/>}>
-          <Route index element={<MainScreen title={title} genres={genres} date={date}/>}/>;
+          <Route index element={<MainScreen films = {films}/>}/>;
           <Route path={AppRoute.Sign_in} element={<SignIn/>}/>
           <Route path={AppRoute.MyList} element={<MyList/>}/>
-          <Route path={AppRoute.Film} element={<MovieCard/>}/>
+          <Route path={AppRoute.Film} element={<MovieCard films={films}/>}/>
           <Route path={AppRoute.Add_Review} element={<AddReview/>}/>
           <Route path={AppRoute.Player} element={<Player/>}/>
           <Route

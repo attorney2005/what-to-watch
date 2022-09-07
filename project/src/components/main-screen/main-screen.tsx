@@ -1,41 +1,21 @@
 import MovieCard from "../movie-card/movie-card";
+import {Films} from "../../types/films";
+import Header from "../header/header";
 
 interface MainScreenProps {
-  title: string,
-  genres:string,
-  date: number
+  films: Films
 }
 function MainScreen(props:MainScreenProps): JSX.Element {
+  const {films} = props;
+  const {title, date, genres} = films;
   return (
     <div>
       <section className="film-card">
         <div className="film-card__bg">
           <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
         </div>
-
         <h1 className="visually-hidden">WTW</h1>
-
-        <header className="page-header film-card__head">
-          <div className="logo">
-            <a className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <ul className="user-block">
-            <li className="user-block__item">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-              </div>
-            </li>
-            <li className="user-block__item">
-              <a className="user-block__link">Sign out</a>
-            </li>
-          </ul>
-        </header>
-
+        <Header/>
         <div className="film-card__wrap">
           <div className="film-card__info">
             <div className="film-card__poster">
@@ -45,10 +25,10 @@ function MainScreen(props:MainScreenProps): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">{props.title}</h2>
+              <h2 className="film-card__title">{title}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{props.genres}</span>
-                <span className="film-card__year">{props.date}</span>
+                <span className="film-card__genre">{genres}</span>
+                <span className="film-card__year">{date}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -76,31 +56,31 @@ function MainScreen(props:MainScreenProps): JSX.Element {
 
           <ul className="catalog__genres-list">
             <li className="catalog__genres-item catalog__genres-item--active">
-              <a href="#" className="catalog__genres-link">{props.genres}</a>
+              <a href="#" className="catalog__genres-link">{genres}</a>
             </li>
           </ul>
 
           <div className="catalog__films-list">
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
-            <MovieCard/>
+            <MovieCard films={films}/>
+            <MovieCard films={films}/>
+            <MovieCard films={films}/>
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
+            {/*<MovieCard/>*/}
           </div>
 
           <div className="catalog__more">
