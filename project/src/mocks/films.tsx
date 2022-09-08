@@ -66,12 +66,12 @@ export const films: Films[] = [
     src: "img/johnny-english.jpg",
     preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
   },
-{
-  title: "Shutter Island",
-  genres: "Dramas",
-  date: 2011,
-   id: 9,
-  src: "img/shutter-island.jpg",
-  preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
-}
+// {
+//   title: "Shutter Island",
+//   genres: "Dramas",
+//   date: 2011,
+//    id: 9,
+//   src: "img/shutter-island.jpg",
+//   preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
+// }
   ];

@@ -5,4 +5,5 @@ export type Films = {
   id: number;
   src: string;
   preview: string,
+  rating: number;
 };
