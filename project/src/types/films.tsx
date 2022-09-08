@@ -4,4 +4,5 @@ export type Films = {
   date: number;
   id: number;
   src: string;
+  preview: string,
 };

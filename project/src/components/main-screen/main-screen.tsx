@@ -61,15 +61,7 @@ function MainScreen(props:MainScreenProps): JSX.Element {
           </ul>
 
           <div className="catalog__films-list">
-            <MoviePage films={films}/>
-            <MoviePage films={films}/>
-            <MoviePage films={films}/>
-            <MoviePage films={films}/>
-            <MoviePage films={films}/>
-            <MoviePage films={films}/>
-            <MoviePage films={films}/>
-            <MoviePage films={films}/>
-            <MoviePage films={films}/>
+            <MovieCard films={films}/>
           </div>
 
           <div className="catalog__more">
