@@ -1,20 +1,29 @@
-function MoviePage(): JSX.Element {
+import {films} from "../../mocks/films";
+import {Films} from "../../types/films";
+
+type MovieCardProps = {
+  films: Films;
+}
+
+function MoviePage(props:MovieCardProps): JSX.Element {
+  const {films} = props;
+  const {title, date, genres, id, src} = films;
   return (
     <div>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+            <img src="img/bg-the-grand-budapest-hotel.jpg" alt= {films.title} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="film-card__title">{films.title}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">Drama</span>
-                <span className="film-card__year">2014</span>
+                <span className="film-card__genre">{films.genres}</span>
+                <span className="film-card__year">{films.date}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -39,7 +48,7 @@ function MoviePage(): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218"
+              <img src={films.src} alt= {films.title} width="218"
                    height="327"/>
             </div>
 

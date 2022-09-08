@@ -11,6 +11,7 @@ import NotFound from "../not-found/not-found";
 import Layout from "../layout/layout";
 // import {useAppSelector} from '../hooks';
 import {Films} from '../../types/films';
+import MoviePage from "../movie-page/movie-page";
 
 
 type AppScreenProps = {
@@ -18,17 +19,17 @@ type AppScreenProps = {
 }
 
 function App({films}: AppScreenProps): JSX.Element {
-  const [firstfilm] = films;
+  const [firstFilm] = films;
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={'/'}
           element={<Layout/>}>
-          <Route index element={<MainScreen films = {firstfilm as Films}/>}/>;
+          <Route index element={<MainScreen films = {firstFilm as Films}/>}/>;
           <Route path={AppRoute.Sign_in} element={<SignIn/>}/>
           <Route path={AppRoute.MyList} element={<MyList/>}/>
-          <Route path={AppRoute.Film} element={<MovieCard films={films}/>}/>
+          <Route path={AppRoute.Film} element={<MoviePage films = {firstFilm as Films}/>}/>
           <Route path={AppRoute.Add_Review} element={<AddReview/>}/>
           <Route path={AppRoute.Player} element={<Player/>}/>
           <Route

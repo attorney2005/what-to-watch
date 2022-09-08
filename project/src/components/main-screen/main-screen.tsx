@@ -1,6 +1,7 @@
 import MovieCard from "../movie-card/movie-card";
 import {Films} from "../../types/films";
 import Header from "../header/header";
+import MoviePage from "../movie-page/movie-page";
 
 interface MainScreenProps {
   films: Films
@@ -60,26 +61,15 @@ function MainScreen(props:MainScreenProps): JSX.Element {
           </ul>
 
           <div className="catalog__films-list">
-            <MovieCard films={films}/>
-            <MovieCard films={films}/>
-            <MovieCard films={films}/>
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
-            {/*<MovieCard/>*/}
+            <MoviePage films={films}/>
+            <MoviePage films={films}/>
+            <MoviePage films={films}/>
+            <MoviePage films={films}/>
+            <MoviePage films={films}/>
+            <MoviePage films={films}/>
+            <MoviePage films={films}/>
+            <MoviePage films={films}/>
+            <MoviePage films={films}/>
           </div>
 
           <div className="catalog__more">
