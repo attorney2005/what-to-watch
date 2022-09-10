@@ -11,7 +11,7 @@ function AddReview(props:AddReviewProps): JSX.Element {
     <section className="film-card film-card--full">
       <div className="film-card__header">
         <div className="film-card__bg">
-          <img src={films.src} alt="The Grand Budapest Hotel"/>
+          <img src={films.background} alt="The Grand Budapest Hotel"/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>

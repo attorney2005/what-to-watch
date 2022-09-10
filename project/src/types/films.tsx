@@ -3,6 +3,7 @@ export type Films = {
   genres: string;
   date: number;
   id: number;
+  background:string;
   src: string;
   preview: string,
   rating: number;
