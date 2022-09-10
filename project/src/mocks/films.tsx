@@ -9,6 +9,7 @@ export const films: Films[] = [
     id: 1,
     src: "img/fantastic-beasts-the-crimes-of-grindelwald.jpg",
     preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
+    rating: 5,
   },
   {
     title: "Bohemian Rhapsody",
@@ -17,6 +18,7 @@ export const films: Films[] = [
     id: 2,
     src: "img/bohemian-rhapsody.jpg",
     preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
+    rating: 5,
   },
   {
     title: "Macbeth",
@@ -25,6 +27,7 @@ export const films: Films[] = [
     id: 3,
     src: "img/macbeth.jpg",
     preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
+    rating: 5,
   },
   {
     title: "Aviator",
@@ -33,6 +36,7 @@ export const films: Films[] = [
     id: 4,
     src: "img/aviator.jpg",
     preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
+    rating: 5,
   },
   {
     title: "We need to talk about Kevin",
@@ -41,6 +45,7 @@ export const films: Films[] = [
     id: 5,
     src: "img/we-need-to-talk-about-kevin.jpg",
     preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
+    rating: 5,
   },
   {
     title: "What We Do in the Shadows",
@@ -49,6 +54,7 @@ export const films: Films[] = [
     id:6,
     src:"img/what-we-do-in-the-shadows.jpg",
     preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
+    rating: 5,
   },
   {
     title: "Revenant",
@@ -57,6 +63,7 @@ export const films: Films[] = [
     id: 7,
     src: "img/revenant.jpg",
     preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
+    rating: 5,
   },
   {
     title: "Johnny English",
@@ -65,6 +72,7 @@ export const films: Films[] = [
      id: 8,
     src: "img/johnny-english.jpg",
     preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
+    rating: 5,
   },
 // {
 //   title: "Shutter Island",

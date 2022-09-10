@@ -30,7 +30,7 @@ function App({films}: AppScreenProps): JSX.Element {
           <Route path={AppRoute.Sign_in} element={<SignIn/>}/>
           <Route path={AppRoute.MyList} element={<MyList/>}/>
           <Route path={AppRoute.Film} element={<MoviePage films = {firstFilm as Films}/>}/>
-          <Route path={AppRoute.Add_Review} element={<AddReview/>}/>
+          <Route path={AppRoute.Add_Review} element={<AddReview films = {firstFilm as Films}/>}/>
           <Route path={AppRoute.Player} element={<Player/>}/>
           <Route
             path={AppRoute.MyList}
