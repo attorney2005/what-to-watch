@@ -1,5 +1,7 @@
 import {Films} from "../../types/films";
 
+import {TEXTAREA_COLOR, RATINGS_QUANTITY, Review, reviewSubmitButton, Pages, AppRoute} from '../const/const';
+
 type AddReviewProps = {
   films: Films,
   isDataSending: boolean;
@@ -91,7 +93,7 @@ function AddReview({
                 type="submit"
                 disabled={isSubmitDisabled}
               >
-                {/*{isDataSending ? reviewSubmitButton.sending : reviewSubmitButton.post}*/}
+                {isDataSending ? reviewSubmitButton.sending : reviewSubmitButton.post}
               </button>
             </div>
 
