@@ -1,17 +1,33 @@
 import {Films} from "../../types/films";
 
 type AddReviewProps = {
-  films: Films
+  films: Films,
+  isDataSending: boolean;
+  isSendingError: boolean;
+  isSubmitDisabled: boolean;
+  onSubmitClick(): void;
+  onFormChange(): void;
+  onRatingChange(): void;
+  onReviewChange(): void;
 }
 
-function AddReview(props: AddReviewProps): JSX.Element {
-  const {films} = props;
-  // const {rating, src} = films;
+function AddReview({
+   films,
+   isDataSending,
+   isSendingError,
+   isSubmitDisabled,
+   onSubmitClick,
+   onFormChange,
+   onRatingChange,
+   onReviewChange,
+   }: AddReviewProps): JSX.Element {
+
   return (
     <section className="film-card film-card--full">
+      {/*style={{backgroundColor: films.backgroundColor}}*/}
       <div className="film-card__header">
         <div className="film-card__bg">
-          <img src={films.background} alt="The Grand Budapest Hotel"/>
+          <img src={films.background} alt={films.title}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -24,45 +40,66 @@ function AddReview(props: AddReviewProps): JSX.Element {
       </div>
 
       <div className="add-review">
-        <form action="#" className="add-review__form">
+        <form
+          action="#"
+          className="add-review__form"
+          onSubmit={onSubmitClick}
+          onChange={onFormChange}
+        >
           <div className="rating">
-            <div className="rating__stars">
-              {/*onChange={onRatingChange}>*/}
+            <div className="rating__stars"
+              onChange={onRatingChange}>
               {Array.from(Array(5)).map((_, index) => {
                 const rating = index + 1;
                 return (
                   <>
                     <input
                       className="rating__input"
-                      id={`star-${films.rating}`}
+                      id={`star-${rating}`}
                       type="radio"
                       name="rating"
-                      value={films.rating}
+                      value={rating}
                       // disabled={isRadioDisabled}
                     />
-                    <label className="rating__label" htmlFor={`star-${films.rating}`}>Rating {films.rating}</label>
+                    <label className="rating__label" htmlFor={`star-${rating}`}>Rating {rating}</label>
 
                   </>
                 )}
                 )
               }
-              )
 
             </div>
           </div>
 
 
-                <div className="add-review__text">
-                    <textarea className="add-review__textarea" name="review-text" id="review-text"
-                    placeholder="Review text">
+          <div
+            className="add-review__text"
+            >
+              <textarea
+                className="add-review__textarea"
+                name="review-text"
+                id="review-text"
+                placeholder="Review text"
+                // minLength={Review.MIN_LENGTH}
+                // maxLength={Review.MAX_LENGTH}
+                onChange={onReviewChange}
+                required
+              ></textarea>
+            <div className="add-review__submit">
+              <button
+                className="add-review__btn"
+                type="submit"
+                disabled={isSubmitDisabled}
+              >
+                {/*{isDataSending ? reviewSubmitButton.sending : reviewSubmitButton.post}*/}
+              </button>
+            </div>
 
-                    </textarea>
-                  <div className="add-review__submit">
-                    <button className="add-review__btn" type="submit">Post</button>
-                  </div>
-
-                </div>
+          </div>
         </form>
+        {isSendingError &&
+        <p style={{color: `red`}}>Error while sending data. Please, try again later.</p>
+        }
                 </div>
     </section>
   )

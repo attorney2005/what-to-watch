@@ -7,4 +7,5 @@ export type Films = {
   src: string;
   preview: string,
   rating: number;
+  backgroundColor: string,
 };
