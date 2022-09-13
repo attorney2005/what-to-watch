@@ -11,6 +11,7 @@ export const films: Films[] = [
     src: "img/fantastic-beasts-the-crimes-of-grindelwald.jpg",
     preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
     rating: 5,
+    // backgroundColor: '#ffffff',
   },
   {
     title: "Bohemian Rhapsody",

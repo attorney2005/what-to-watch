@@ -1,17 +1,29 @@
+import * as React from 'react';
 import {Films} from '../../types/films';
 
 type PlayerProps = {
-  films: Films,
+  films: Films;
+  onExitButtonClick(): void;
+  renderVideoPlayer(): React.ReactNode;
 }
 
-function Player(props: PlayerProps): JSX.Element {
-  const {films} = props;
+function Player({
+  films,
+  onExitButtonClick,
+  renderVideoPlayer,
+ }: PlayerProps): JSX.Element {
 
   return (
-    <div className="player">
-      <video src={films.preview}></video>
+     <div className="player">
+      {renderVideoPlayer()}
 
-      <button type="button" className="player__exit">Exit</button>
+      <button
+        type="button"
+        className="player__exit"
+        onClick={onExitButtonClick}
+      >
+        Exit
+      </button>
 
       <div className="player__controls">
         <div className="player__controls-row">
@@ -29,7 +41,7 @@ function Player(props: PlayerProps): JSX.Element {
             </svg>
             <span>Play</span>
           </button>
-          <div className="player__name">Transpotting</div>
+          <div className="player__name">{films.title}</div>
 
           <button type="button" className="player__full-screen">
             <svg viewBox="0 0 27 27" width="27" height="27">

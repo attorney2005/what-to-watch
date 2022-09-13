@@ -1,6 +1,6 @@
 import {Films} from "../../types/films";
 
-import {TEXTAREA_COLOR, RATINGS_QUANTITY, Review, reviewSubmitButton, Pages, AppRoute} from '../const/const';
+import {TEXTAREA_COLOR, RATINGS_QUANTITY, Review, reviewSubmitButton} from '../const/const';
 
 type AddReviewProps = {
   films: Films,
@@ -25,8 +25,8 @@ function AddReview({
    }: AddReviewProps): JSX.Element {
 
   return (
-    <section className="film-card film-card--full">
-      {/*style={{backgroundColor: films.backgroundColor}}*/}
+    <section className="film-card film-card--full"
+      style={{backgroundColor: films.backgroundColor}}>
       <div className="film-card__header">
         <div className="film-card__bg">
           <img src={films.background} alt={films.title}/>
@@ -51,7 +51,7 @@ function AddReview({
           <div className="rating">
             <div className="rating__stars"
               onChange={onRatingChange}>
-              {Array.from(Array(5)).map((_, index) => {
+              {Array.from(Array(RATINGS_QUANTITY)).map((_, index) => {
                 const rating = index + 1;
                 return (
                   <>
@@ -72,18 +72,16 @@ function AddReview({
 
             </div>
           </div>
-
-
           <div
             className="add-review__text"
-            >
+            style={{backgroundColor: TEXTAREA_COLOR}}>
               <textarea
                 className="add-review__textarea"
                 name="review-text"
                 id="review-text"
                 placeholder="Review text"
-                // minLength={Review.MIN_LENGTH}
-                // maxLength={Review.MAX_LENGTH}
+                minLength={Review.MIN_LENGTH}
+                maxLength={Review.MAX_LENGTH}
                 onChange={onReviewChange}
                 required
               ></textarea>
