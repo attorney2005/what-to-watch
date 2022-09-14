@@ -8,19 +8,19 @@ type PlayerProps = {
 }
 
 function Player({
-  films,
-  onExitButtonClick,
-  renderVideoPlayer,
- }: PlayerProps): JSX.Element {
+                  films,
+                  // onExitButtonClick,
+                  // renderVideoPlayer,
+                }: PlayerProps): JSX.Element {
 
   return (
-     <div className="player">
-      {renderVideoPlayer()}
+    <div className="player">
+      {/*{renderVideoPlayer()}*/}
 
       <button
         type="button"
         className="player__exit"
-        onClick={onExitButtonClick}
+        // onClick={onExitButtonClick}
       >
         Exit
       </button>

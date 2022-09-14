@@ -1,19 +1,20 @@
 import {films} from "../../mocks/films";
 import {Films} from "../../types/films";
+import MovieCard from "../movie-card/movie-card";
 
 type MovieCardProps = {
   films: Films;
 }
 
-function MoviePage(props:MovieCardProps): JSX.Element {
+function MoviePage(props: MovieCardProps): JSX.Element {
   const {films} = props;
-  const {title, date, genres, id, src} = films;
+  // const {title, date, genres, id, src} = films;
   return (
     <div>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt= {films.title} />
+            <img src="img/bg-the-grand-budapest-hotel.jpg" alt={films.title}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -48,7 +49,7 @@ function MoviePage(props:MovieCardProps): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src={films.src} alt= {films.title} width="218"
+              <img src={films.src} alt={films.title} width="218"
                    height="327"/>
             </div>
 
@@ -97,45 +98,8 @@ function MoviePage(props:MovieCardProps): JSX.Element {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-
           <div className="catalog__films-list">
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-                     alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175"/>
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Fantastic Beasts: The Crimes of
-                  Grindelwald</a>
-              </h3>
-            </article>
-
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175"/>
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Bohemian Rhapsody</a>
-              </h3>
-            </article>
-
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175"/>
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Macbeth</a>
-              </h3>
-            </article>
-
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/aviator.jpg" alt="Aviator" width="280" height="175"/>
-              </div>
-              <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Aviator</a>
-              </h3>
-            </article>
+            <MovieCard/>
           </div>
         </section>
 
