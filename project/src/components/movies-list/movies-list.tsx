@@ -2,7 +2,7 @@ import {films} from "../../mocks/films";
 
 const movies = films;
 
-function MovieCard(): JSX.Element {
+function MoviesList(): JSX.Element {
 
   return (
     <>
@@ -26,5 +26,5 @@ function MovieCard(): JSX.Element {
   )
 }
 
-export default MovieCard
+export default MoviesList
 

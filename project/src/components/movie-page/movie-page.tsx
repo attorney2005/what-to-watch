@@ -1,6 +1,6 @@
 import {films} from "../../mocks/films";
 import {Films} from "../../types/films";
-import MovieCard from "../movie-card/movie-card";
+import MoviesList from "../movies-list/movies-list";
 
 type MovieCardProps = {
   films: Films;
@@ -99,7 +99,7 @@ function MoviePage(props: MovieCardProps): JSX.Element {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
           <div className="catalog__films-list">
-            <MovieCard/>
+            <MoviesList/>
           </div>
         </section>
 

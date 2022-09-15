@@ -70,7 +70,7 @@ export const films: Films[] = [
     id: 7,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
     src: "img/revenant.jpg",
-    preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
+    preview: `https://www.youtube.com/watch?v=gmlOj2xyA5c&ab_channel=20thCenturyStudiosRussia`,
     rating: 5,
     // backgroundColor: #ffffff,
   },

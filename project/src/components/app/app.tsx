@@ -2,16 +2,17 @@ import MainScreen from '../main-screen/main-screen';
 import {Route, BrowserRouter, Routes, Link} from 'react-router-dom';
 import PrivateRoute from '../private-route/private-route';
 import {AppRoute, AuthorizationStatus} from '../const/const';
-import SignIn from "../sign-in/sign-in";
-import MyList from "../my-list/my-list";
-import MovieCard from "../movie-card/movie-card";
-import AddReview from "../add-review/add-review";
-import Player from "../player/player";
-import NotFound from "../not-found/not-found";
-import Layout from "../layout/layout";
+import SignIn from '../sign-in/sign-in';
+import MyList from '../my-list/my-list';
+import MoviesList from '../movies-list/movies-list';
+import AddReview from '../add-review/add-review';
+import Player from '../player/player';
+import NotFound from '../not-found/not-found';
+import Layout from '../layout/layout';
 // import {useAppSelector} from '../hooks';
 import {Films} from '../../types/films';
-import MoviePage from "../movie-page/movie-page";
+import MoviePage from '../movie-page/movie-page';
+import SmallMovieCard from '../small-movie-card/small-movie-card';
 
 
 type AppScreenProps = {
@@ -32,7 +33,8 @@ function App({films}: AppScreenProps): JSX.Element {
           <Route path={AppRoute.Film} element={<MoviePage films = {firstFilm as Films}/>}/>
           <Route path={AppRoute.Add_Review} element={<AddReview films = {firstFilm as Films}/>}/>
           <Route path={AppRoute.Player} element={<Player films = {firstFilm as Films}/>}/>
-          <Route path={AppRoute.Card} element={<MovieCard films = {firstFilm as Films}/>}/>
+          <Route path={AppRoute.Movies_list} element={<MoviesList films = {firstFilm as Films}/>}/>
+          <Route path={AppRoute.Small} element={<SmallMovieCard films = {firstFilm as Films}/>}/>
           <Route
             path={AppRoute.MyList}
             element={

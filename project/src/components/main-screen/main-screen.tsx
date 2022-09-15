@@ -1,4 +1,4 @@
-import MovieCard from "../movie-card/movie-card";
+import MoviesList from "../movies-list/movies-list";
 import {Films} from "../../types/films";
 import Header from "../header/header";
 import MoviePage from "../movie-page/movie-page";
@@ -61,7 +61,7 @@ function MainScreen(props:MainScreenProps): JSX.Element {
           </ul>
 
           <div className="catalog__films-list">
-            <MovieCard films={films}/>
+            <MoviesList films={films}/>
           </div>
 
           <div className="catalog__more">

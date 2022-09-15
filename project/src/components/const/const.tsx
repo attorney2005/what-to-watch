@@ -12,7 +12,8 @@ export enum AppRoute {
   Film = '/films/:id',
   Add_Review = '/films/:id/review',
   Player = '/player/:id',
-  Card = '/card/:id',
+  Movies_list = '/movies_list/:id',
+  Small = '/small/:id',
 }
 
 export enum AuthorizationStatus {
