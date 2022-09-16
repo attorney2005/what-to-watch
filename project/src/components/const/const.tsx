@@ -34,4 +34,9 @@ export const reviewSubmitButton: {
   sending: `Sending...`,
 };
 
+export enum smallVideoPlayer {
+  WIDTH = `280`,
+  HEIGHT = `175`,
+}
+
 

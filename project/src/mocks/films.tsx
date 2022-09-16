@@ -8,10 +8,11 @@ export const films: Films[] = [
     date: 2020,
     id: 1,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
+    poster: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
     src: "img/fantastic-beasts-the-crimes-of-grindelwald.jpg",
     preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
     rating: 5,
-    // backgroundColor: '#ffffff',
+    backgroundColor: '#ffffff',
   },
   {
     title: "Bohemian Rhapsody",

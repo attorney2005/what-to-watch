@@ -1,12 +1,12 @@
-import * as React from 'react';
-// import VideoPlayer from '../video-player/video-player';
+import React from 'react';
 import {Link} from 'react-router-dom';
+import VideoPlayer from '../video-player/video-player';
 import {AppRoute} from '../const/const';
 import {Films} from '../../types/films';
 
 type SmallMovieCardProps = {
   films: Films;
-  // isPlaying: boolean;
+  isPlaying: boolean;
   onSmallMovieCardMouseEnter(): void;
 
   onSmallMovieCardMouseOut(): void;
@@ -15,7 +15,7 @@ type SmallMovieCardProps = {
 function SmallMovieCard(props: SmallMovieCardProps): JSX.Element {
   const {
     films,
-    // isPlaying,
+    isPlaying,
     onSmallMovieCardMouseEnter,
     onSmallMovieCardMouseOut,
   } = props;
@@ -37,12 +37,12 @@ function SmallMovieCard(props: SmallMovieCardProps): JSX.Element {
         <div
           className="small-film-card__image"
         >
-          {/*<VideoPlayer*/}
-          {/*  muted*/}
-          {/*  isPlaying={isPlaying}*/}
-          {/*  source={movie.preview}*/}
-          {/*  poster={movie.poster}*/}
-          {/*/>*/}
+          <VideoPlayer
+            muted
+            isPlaying={isPlaying}
+            source={films.preview}
+            poster={films.poster}
+          />
         </div>
         <h3
           className="small-film-card__title"

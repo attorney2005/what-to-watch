@@ -4,6 +4,7 @@ export type Films = {
   date: number;
   id: number;
   background:string;
+  poster: string,
   src: string;
   preview: string,
   rating: number;

@@ -1,4 +1,3 @@
-import {films} from "../../mocks/films";
 import {Films} from "../../types/films";
 import MoviesList from "../movies-list/movies-list";
 
@@ -8,23 +7,23 @@ type MovieCardProps = {
 
 function MoviePage(props: MovieCardProps): JSX.Element {
   const {films} = props;
-  // const {title, date, genres, id, src} = films;
+  const {title, date, genres, src} = films;
   return (
     <div>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt={films.title}/>
+            <img src="img/bg-the-grand-budapest-hotel.jpg" alt={title}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">{films.title}</h2>
+              <h2 className="film-card__title">{title}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{films.genres}</span>
-                <span className="film-card__year">{films.date}</span>
+                <span className="film-card__genre">{genres}</span>
+                <span className="film-card__year">{date}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -49,7 +48,7 @@ function MoviePage(props: MovieCardProps): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src={films.src} alt={films.title} width="218"
+              <img src={src} alt={title} width="218"
                    height="327"/>
             </div>
 
