@@ -3,10 +3,7 @@ import {smallVideoPlayer, ERROR_MESSAGE} from '../const/const';
 
 
 type VideoPlayerProps = {
-  // muted: boolean;
-  // poster: string;
   isPlaying: boolean;
-  // autoPlay: boolean;
   src: string;
 }
 

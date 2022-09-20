@@ -32,9 +32,9 @@ function App({films}: AppScreenProps): JSX.Element {
           <Route path={AppRoute.MyList} element={<MyList/>}/>
           <Route path={AppRoute.Film} element={<MoviePage films = {firstFilm as Films}/>}/>
           <Route path={AppRoute.Add_Review} element={<AddReview films = {firstFilm as Films}/>}/>
-          <Route path={AppRoute.Player} element={<Player films = {firstFilm as Films}/>}/>
+          <Route path={AppRoute.Player} element={<Player films = {firstFilm as Films} isPlaying/>}/>
           <Route path={AppRoute.Movies_list} element={<MoviesList films = {firstFilm as Films}/>}/>
-          <Route path={AppRoute.Small} element={<SmallMovieCard films = {firstFilm as Films}/>}/>
+          <Route path={AppRoute.Small} element={<SmallMovieCard films = {firstFilm as Films} isPlaying/>}/>
           <Route
             path={AppRoute.MyList}
             element={

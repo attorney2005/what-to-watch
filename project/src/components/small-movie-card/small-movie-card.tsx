@@ -8,8 +8,6 @@ import VideoPlayer from "../video-player/video-player";
 type SmallMovieCardProps = {
   films: Films;
   isPlaying: boolean;
-
-  autoPlay: boolean;
 }
 
 function SmallMovieCard(props: SmallMovieCardProps): JSX.Element {

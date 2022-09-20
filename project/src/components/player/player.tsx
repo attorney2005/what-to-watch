@@ -7,25 +7,18 @@ type PlayerProps = {
   onExitButtonClick(): void;
   renderVideoPlayer(): React.ReactNode;
   isPlaying: boolean;
-  autoPlay: boolean;
 }
 
 function Player({
                   films,
                   isPlaying,
-                  // onExitButtonClick,
-                  // renderVideoPlayer,
-                  autoPlay,
                 }: PlayerProps): JSX.Element {
 
   return (
     <div className="player">
       <VideoPlayer
-        muted
         isPlaying={isPlaying}
         src={films.preview}
-        poster={films.poster}
-        autoPlay = {autoPlay}
        />
 
       <button
