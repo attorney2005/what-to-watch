@@ -3,39 +3,40 @@ import {smallVideoPlayer, ERROR_MESSAGE} from '../const/const';
 
 
 type VideoPlayerProps = {
-  muted: boolean;
-  source: string;
-  poster: string;
+  // muted: boolean;
+  // poster: string;
   isPlaying: boolean;
+  // autoPlay: boolean;
+  src: string;
 }
 
-function VideoPlayer(props: VideoPlayerProps): JSX.Element {
-  const [isPlaying, setIsPlaying] = useState();
+function VideoPlayer({src}: VideoPlayerProps): JSX.Element {
+  const [isLoading, setIsLoading] = useState(true);
+
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    if (videoRef.current === null) {
-      return;
+    if (videoRef.current !== null) {
+      videoRef.current.onloadeddata = () => setIsLoading(false);
     }
 
-    if (isPlaying) {
-      videoRef.current.play();
-      return;
-    }
+    return () => {
+      if (videoRef.current !== null) {
+        videoRef.current.onloadeddata = null;
+        videoRef.current = null;
+      }
+    };
+  }, [src]);
 
-    videoRef.current.pause();
-  }, [isPlaying]);
 
-  return (
-    <video
-      ref={videoRef}
-      width={smallVideoPlayer.WIDTH}
-      height={smallVideoPlayer.HEIGHT}
-    >
-      {ERROR_MESSAGE}
-    </video>
-  )
-
+return (
+  <video
+    ref={videoRef}
+    width={smallVideoPlayer.WIDTH}
+    height={smallVideoPlayer.HEIGHT}
+  >
+    {ERROR_MESSAGE}
+  </video>
+)
 }
-
-export default VideoPlayer
+  export default VideoPlayer

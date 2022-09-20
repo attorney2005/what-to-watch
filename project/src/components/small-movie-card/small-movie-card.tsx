@@ -1,34 +1,28 @@
-import React from 'react';
+import {useState} from 'react';
 import {Link} from 'react-router-dom';
-import VideoPlayer from '../video-player/video-player';
+import Player from '../video-player/video-player';
 import {AppRoute} from '../const/const';
 import {Films} from '../../types/films';
+import VideoPlayer from "../video-player/video-player";
 
 type SmallMovieCardProps = {
   films: Films;
   isPlaying: boolean;
-  onSmallMovieCardMouseEnter(): void;
 
-  onSmallMovieCardMouseOut(): void;
+  autoPlay: boolean;
 }
 
 function SmallMovieCard(props: SmallMovieCardProps): JSX.Element {
   const {
     films,
-    isPlaying,
-    onSmallMovieCardMouseEnter,
-    onSmallMovieCardMouseOut,
   } = props;
+  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <article
       className="small-film-card catalog__films-card"
-      onMouseEnter={() => {
-        onSmallMovieCardMouseEnter();
-      }}
-      onMouseOut={() => {
-        onSmallMovieCardMouseOut();
-      }}
+      onMouseEnter={() => setIsPlaying(true)}
+      onMouseLeave={() => setIsPlaying(false)}
     >
       <Link
         className="small-film-card__link"
@@ -37,12 +31,9 @@ function SmallMovieCard(props: SmallMovieCardProps): JSX.Element {
         <div
           className="small-film-card__image"
         >
-          <VideoPlayer
-            muted
-            isPlaying={isPlaying}
-            source={films.preview}
-            poster={films.poster}
-          />
+          {!isPlaying
+            ? <img src={films.src} alt={films.title} width="280" height="175" />
+            : <VideoPlayer films={films} key={films.id} src={films.preview} isPlaying={isPlaying}/>}
         </div>
         <h3
           className="small-film-card__title"

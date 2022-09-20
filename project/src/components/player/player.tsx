@@ -1,21 +1,32 @@
 import * as React from 'react';
 import {Films} from '../../types/films';
+import VideoPlayer from "../video-player/video-player";
 
 type PlayerProps = {
   films: Films;
   onExitButtonClick(): void;
   renderVideoPlayer(): React.ReactNode;
+  isPlaying: boolean;
+  autoPlay: boolean;
 }
 
 function Player({
                   films,
+                  isPlaying,
                   // onExitButtonClick,
                   // renderVideoPlayer,
+                  autoPlay,
                 }: PlayerProps): JSX.Element {
 
   return (
     <div className="player">
-      {/*{renderVideoPlayer()}*/}
+      <VideoPlayer
+        muted
+        isPlaying={isPlaying}
+        src={films.preview}
+        poster={films.poster}
+        autoPlay = {autoPlay}
+       />
 
       <button
         type="button"
