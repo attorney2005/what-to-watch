@@ -13,6 +13,7 @@ import Layout from '../layout/layout';
 import {Films} from '../../types/films';
 import MoviePage from '../movie-page/movie-page';
 import SmallMovieCard from '../small-movie-card/small-movie-card';
+import FilmTabTitle from "../film-tab-title/film-tab-title";
 
 
 type AppScreenProps = {
@@ -30,7 +31,7 @@ function App({films}: AppScreenProps): JSX.Element {
           <Route index element={<MainScreen films = {firstFilm as Films}/>}/>;
           <Route path={AppRoute.Sign_in} element={<SignIn/>}/>
           <Route path={AppRoute.MyList} element={<MyList/>}/>
-          <Route path={AppRoute.Film} element={<MoviePage films = {firstFilm as Films}/>}/>
+          <Route path={AppRoute.Film} element={<FilmTabTitle films = {firstFilm as Films}/>}/>
           <Route path={AppRoute.Add_Review} element={<AddReview films = {firstFilm as Films}/>}/>
           <Route path={AppRoute.Player} element={<Player films = {firstFilm as Films} isPlaying/>}/>
           <Route path={AppRoute.Movies_list} element={<MoviesList films = {firstFilm as Films}/>}/>

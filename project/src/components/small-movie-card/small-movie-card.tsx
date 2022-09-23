@@ -10,6 +10,7 @@ type SmallMovieCardProps = {
   isPlaying: boolean;
 }
 
+
 function SmallMovieCard(props: SmallMovieCardProps): JSX.Element {
   const {
     films,

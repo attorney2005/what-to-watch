@@ -1,4 +1,4 @@
-function MoviePageDetails(): JSX.Element {
+function FilmTabDetails(): JSX.Element {
   return (
 <div>
   <section className="film-card film-card--full">
