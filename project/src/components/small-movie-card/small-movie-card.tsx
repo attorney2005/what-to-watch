@@ -2,11 +2,11 @@ import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import Player from '../video-player/video-player';
 import {AppRoute} from '../const/const';
-import {Films} from '../../types/films';
+import {films} from '../../types/films';
 import VideoPlayer from "../video-player/video-player";
 
 type SmallMovieCardProps = {
-  films: Films;
+  films: films;
   isPlaying: boolean;
 }
 
@@ -32,7 +32,7 @@ function SmallMovieCard(props: SmallMovieCardProps): JSX.Element {
         >
           {!isPlaying
             ? <img src={films.src} alt={films.title} width="280" height="175" />
-            : <VideoPlayer films={films} key={films.id} src={films.preview} isPlaying={isPlaying}/>}
+            : <VideoPlayer  key={films.id} src={films.preview} isPlaying={isPlaying}/>}
         </div>
         <h3
           className="small-film-card__title"

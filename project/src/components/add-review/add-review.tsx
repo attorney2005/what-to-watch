@@ -1,9 +1,9 @@
-import {Films} from "../../types/films";
+import {films} from "../../types/films";
 
 import {TEXTAREA_COLOR, RATINGS_QUANTITY, Review, reviewSubmitButton} from '../const/const';
 
 type AddReviewProps = {
-  films: Films,
+  films: films,
   isDataSending: boolean;
   isSendingError: boolean;
   isSubmitDisabled: boolean;

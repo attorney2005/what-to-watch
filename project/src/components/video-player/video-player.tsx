@@ -14,19 +14,19 @@ function VideoPlayer({src}: VideoPlayerProps): JSX.Element {
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  // useEffect(() => {
-  //   if (videoRef.current !== null) {
-  //     videoRef.current.onloadeddata = () => setIsLoading(false);
-  //   }
-  //
-  //   return () => {
-  //     if (videoRef.current !== null) {
-  //       videoRef.current.onloadeddata = null;
-  //       videoRef.current = null;
-  //     }
-  //   };
-  // }, [src]);
-console.log(src)
+  useEffect(() => {
+    if (videoRef.current !== null) {
+      videoRef.current.onloadeddata = () => setIsLoading(false);
+    }
+
+    return () => {
+      if (videoRef.current !== null) {
+        videoRef.current.onloadeddata = null;
+        videoRef.current = null;
+      }
+    };
+  }, [src]);
+
   return (
     <>
       <video

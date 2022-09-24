@@ -1,9 +1,9 @@
-import {Films} from "../../types/films";
+import {films} from "../../types/films";
 import MoviesList from "../movies-list/movies-list";
 import FilmTubs from "../film-tabs/film-tabs";
 
 type MovieCardProps = {
-  films: Films;
+  films: films;
   children:JSX.Element[]
 }
 

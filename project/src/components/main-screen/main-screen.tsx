@@ -1,10 +1,10 @@
 import MoviesList from "../movies-list/movies-list";
-import {Films} from "../../types/films";
+import {films} from "../../types/films";
 import Header from "../header/header";
 import MoviePage from "../movie-page/movie-page";
 
 interface MainScreenProps {
-  films: Films
+  films: films
 }
 function MainScreen(props:MainScreenProps): JSX.Element {
   const {films} = props;
