@@ -9,4 +9,8 @@ export type Films = {
   preview: string,
   rating: number;
   backgroundColor: string,
+  scoresCount: number,
+  description: number,
+  director: string,
+  actors: string,
 };
