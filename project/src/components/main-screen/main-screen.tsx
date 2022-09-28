@@ -1,14 +1,11 @@
-import MoviesList from "../movies-list/movies-list";
-import {films} from "../../types/films";
-import Header from "../header/header";
-import MoviePage from "../movie-page/movie-page";
+import MoviesList from '../movies-list/movies-list';
+import {Films} from '../../types/films';
 
 interface MainScreenProps {
-  films: films
+  films: Films
 }
 function MainScreen(props:MainScreenProps): JSX.Element {
   const {films} = props;
-  const {title, date, genres, id, src} = films;
   return (
     <div>
       <section className="film-card">
@@ -61,7 +58,7 @@ function MainScreen(props:MainScreenProps): JSX.Element {
           </ul>
 
           <div className="catalog__films-list">
-            <MoviesList films={films}/>
+            <MoviesList/>
           </div>
 
           <div className="catalog__more">

@@ -1,7 +1,5 @@
-import {Films} from '../types/films';
 
-
-export const films: Films[] = [
+export const films = [
   {
     title: 'Fantastic Beasts: The Crimes of Grindelwald',
     genres: 'Crime',

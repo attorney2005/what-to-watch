@@ -1,5 +1,5 @@
 import MainScreen from '../main-screen/main-screen';
-import {Route, BrowserRouter, Routes, Link} from 'react-router-dom';
+import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import PrivateRoute from '../private-route/private-route';
 import {AppRoute, AuthorizationStatus} from '../const/const';
 import SignIn from '../sign-in/sign-in';
@@ -9,15 +9,13 @@ import AddReview from '../add-review/add-review';
 import Player from '../player/player';
 import NotFound from '../not-found/not-found';
 import Layout from '../layout/layout';
-// import {useAppSelector} from '../hooks';
-import {films} from '../../types/films';
-import MoviePage from '../movie-page/movie-page';
+import {Films} from '../../types/films';
 import SmallMovieCard from '../small-movie-card/small-movie-card';
-import FilmTabTitle from "../film-tab-title/film-tab-title";
+import MoviePage from  '../movie-page/movie-page';
 
 
 type AppScreenProps = {
-  films: films;
+  films: Films[];
 }
 
 function App({films}: AppScreenProps): JSX.Element {
@@ -27,15 +25,16 @@ function App({films}: AppScreenProps): JSX.Element {
       <Routes>
         <Route
           path={'/'}
-          element={<Layout/>}>
-          <Route index element={<MainScreen films = {firstFilm as films}/>}/>;
+          element={<Layout/>}
+        >
+          <Route index element={<MainScreen films = {firstFilm as Films}/>}/>;
           <Route path={AppRoute.Sign_in} element={<SignIn/>}/>
           <Route path={AppRoute.MyList} element={<MyList/>}/>
-          <Route path={AppRoute.Film} element={<FilmTabTitle films = {firstFilm as films}/>}/>
-          <Route path={AppRoute.Add_Review} element={<AddReview films = {firstFilm as films}/>}/>
-          <Route path={AppRoute.Player} element={<Player films = {firstFilm as films} isPlaying/>}/>
-          <Route path={AppRoute.Movies_list} element={<MoviesList films = {firstFilm as films}/>}/>
-          <Route path={AppRoute.Small} element={<SmallMovieCard films = {firstFilm as films} isPlaying/>}/>
+          <Route path={AppRoute.Film} element={<MoviePage films = {firstFilm as Films}/>}/>
+          <Route path={AppRoute.Add_Review} element={<AddReview films = {firstFilm as Films}/>}/>
+          <Route path={AppRoute.Player} element={<Player films = {firstFilm as Films} isPlaying/>}/>
+          <Route path={AppRoute.Movies_list} element={<MoviesList films = {firstFilm as Films}/>}/>
+          <Route path={AppRoute.Small} element={<SmallMovieCard films = {firstFilm as Films} isPlaying/>}/>
           <Route
             path={AppRoute.MyList}
             element={

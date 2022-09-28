@@ -1,9 +1,9 @@
-import {films} from "../../types/films";
+import {Films} from '../../types/films';
 
 import {TEXTAREA_COLOR, RATINGS_QUANTITY, Review, reviewSubmitButton} from '../const/const';
 
 type AddReviewProps = {
-  films: films,
+  films: Films,
   isDataSending: boolean;
   isSendingError: boolean;
   isSubmitDisabled: boolean;
@@ -14,19 +14,20 @@ type AddReviewProps = {
 }
 
 function AddReview({
-   films,
-   isDataSending,
-   isSendingError,
-   isSubmitDisabled,
-   onSubmitClick,
-   onFormChange,
-   onRatingChange,
-   onReviewChange,
-   }: AddReviewProps): JSX.Element {
+  films,
+  isDataSending,
+  isSendingError,
+  isSubmitDisabled,
+  onSubmitClick,
+  onFormChange,
+  onRatingChange,
+  onReviewChange,
+}: AddReviewProps): JSX.Element {
 
   return (
     <section className="film-card film-card--full"
-      style={{backgroundColor: films.backgroundColor}}>
+      style={{backgroundColor: films.backgroundColor}}
+    >
       <div className="film-card__header">
         <div className="film-card__bg">
           <img src={films.background} alt={films.title}/>
@@ -36,7 +37,7 @@ function AddReview({
 
         <div className="film-card__poster film-card__poster--small">
           <img src={films.src} alt="The Grand Budapest Hotel poster" width="218"
-               height="327"
+            height="327"
           />
         </div>
       </div>
@@ -50,7 +51,8 @@ function AddReview({
         >
           <div className="rating">
             <div className="rating__stars"
-              onChange={onRatingChange}>
+              onChange={onRatingChange}
+            >
               {Array.from(Array(RATINGS_QUANTITY)).map((_, index) => {
                 const rating = index + 1;
                 return (
@@ -61,30 +63,30 @@ function AddReview({
                       type="radio"
                       name="rating"
                       value={rating}
-                      // disabled={isRadioDisabled}
                     />
                     <label className="rating__label" htmlFor={`star-${rating}`}>Rating {rating}</label>
-
                   </>
-                )}
-                )
+                );
+              },
+              )
               }
-
             </div>
           </div>
           <div
             className="add-review__text"
-            style={{backgroundColor: TEXTAREA_COLOR}}>
-              <textarea
-                className="add-review__textarea"
-                name="review-text"
-                id="review-text"
-                placeholder="Review text"
-                minLength={Review.MIN_LENGTH}
-                maxLength={Review.MAX_LENGTH}
-                onChange={onReviewChange}
-                required
-              ></textarea>
+            style={{backgroundColor: TEXTAREA_COLOR}}
+          >
+            <textarea
+              className="add-review__textarea"
+              name="review-text"
+              id="review-text"
+              placeholder="Review text"
+              minLength={Review.MIN_LENGTH}
+              maxLength={Review.MAX_LENGTH}
+              onChange={onReviewChange}
+              required
+            >
+            </textarea>
             <div className="add-review__submit">
               <button
                 className="add-review__btn"
@@ -100,9 +102,9 @@ function AddReview({
         {isSendingError &&
         <p style={{color: `red`}}>Error while sending data. Please, try again later.</p>
         }
-                </div>
+      </div>
     </section>
-  )
- }
+  );
+}
 
-       export default AddReview
+export default AddReview;

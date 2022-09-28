@@ -1,14 +1,14 @@
-import {films} from "../../types/films";
+import {Films} from "../../types/films";
 import MoviesList from "../movies-list/movies-list";
-import FilmTubs from "../film-tabs/film-tabs";
+import FilmTabs from "../film-tabs/film-tabs";
+import FilmTabsOverview from "../film-tabs-overview/film-tabs-overview";
 
 type MovieCardProps = {
-  films: films;
-  children:JSX.Element[]
+  films: Films;
 }
 
-function MoviePage({films, children}: MovieCardProps): JSX.Element {
-  // const {films} = props;
+function MoviePage(props: MovieCardProps): JSX.Element {
+  const {films} = props;
   // const {title, date, genres, src} = films;
   return (
     <div>
@@ -53,9 +53,31 @@ function MoviePage({films, children}: MovieCardProps): JSX.Element {
               <img src={films.src} alt={films.title} width="218"
                    height="327"/>
             </div>
-            {/*<FilmTubs children={children}/>*/}
 
             <div className="film-card__desc">
+              {/*<FilmTabs>*/}
+              {/*  <FilmTabsOverview*/}
+              {/*    {...{*/}
+              {/*      title: 'Overview',*/}
+              {/*      rating,*/}
+              {/*      scoresCount,*/}
+              {/*      description,*/}
+              {/*      director,*/}
+              {/*      actors,*/}
+              {/*    }}*/}
+              {/*  />*/}
+              {/*  <FilmTabsDetails*/}
+              {/*    {...{*/}
+              {/*      title: 'Details',*/}
+              {/*      director,*/}
+              {/*      actors,*/}
+              {/*      runTime,*/}
+              {/*      genre,*/}
+              {/*      released,*/}
+              {/*    }}*/}
+              {/*  />*/}
+              {/*  <FilmTabsReviews title="Reviews" />*/}
+              {/*</FilmTabs>*/}
               <nav className="film-nav film-card__nav">
                 <ul className="film-nav__list">
                   <li className="film-nav__item film-nav__item--active">
@@ -69,29 +91,21 @@ function MoviePage({films, children}: MovieCardProps): JSX.Element {
                   </li>
                 </ul>
               </nav>
+              <FilmTabsOverview/>
+              {/*<div className="film-card__text">*/}
+              {/*  <p>In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge*/}
+              {/*    Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.</p>*/}
 
-              <div className="film-rating">
-                <div className="film-rating__score">8,9</div>
-                <p className="film-rating__meta">
-                  <span className="film-rating__level">Very good</span>
-                  <span className="film-rating__count">240 ratings</span>
-                </p>
-              </div>
+              {/*  <p>Gustave prides himself on providing first-class service to the hotel's guests, including satisfying*/}
+              {/*    the*/}
+              {/*    sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously,*/}
+              {/*    Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.</p>*/}
 
-              <div className="film-card__text">
-                <p>In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge
-                  Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.</p>
+              {/*  <p className="film-card__director"><strong>Director: Wes Anderson</strong></p>*/}
 
-                <p>Gustave prides himself on providing first-class service to the hotel's guests, including satisfying
-                  the
-                  sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously,
-                  Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.</p>
-
-                <p className="film-card__director"><strong>Director: Wes Anderson</strong></p>
-
-                <p className="film-card__starring"><strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe
-                  and other</strong></p>
-              </div>
+              {/*  <p className="film-card__starring"><strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe*/}
+              {/*    and other</strong></p>*/}
+              {/*</div>*/}
             </div>
           </div>
         </div>
@@ -104,9 +118,9 @@ function MoviePage({films, children}: MovieCardProps): JSX.Element {
             <MoviesList/>
           </div>
         </section>
-
       </div>
     </div>
+
   )
 }
 
