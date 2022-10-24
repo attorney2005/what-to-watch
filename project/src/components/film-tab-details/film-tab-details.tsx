@@ -1,6 +1,6 @@
 import {Films} from "../../types/films";
 
-type FilmProps = Pick<Films, 'director' | 'actors' | 'runTime' | 'genres' | 'released'>;
+type FilmProps = Pick<Films, 'director' | 'actors' | 'runTime' | 'genre' | 'released'>;
 type FilmTabsDetailsProps = FilmProps & {
   title: string;
 };
@@ -10,7 +10,7 @@ function FilmTabDetails({
      director,
      actors,
      runTime,
-     genres,
+     genre,
      released}: FilmTabsDetailsProps): JSX.Element {
 
   return (
@@ -38,7 +38,7 @@ function FilmTabDetails({
         </p>
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Genre</strong>
-          <span className="film-card__details-value">{genres}</span>
+          <span className="film-card__details-value">{genre}</span>
         </p>
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Released</strong>

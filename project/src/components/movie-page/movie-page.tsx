@@ -10,8 +10,8 @@ type MoviePageProps = {
 
 function MoviePage(props: MoviePageProps): JSX.Element {
   const {films} = props;
-  // const {title, date, genres, src} = films;
-  const {director, rating, scoresCount, description, actors, runTime, genres, released, backgroundColor, isFavorite} =
+  // const {title, date, genre, src} = films;
+  const {director, rating, scoresCount, description, actors, runTime, genre, released, backgroundColor, isFavorite} =
     films;
   return (
     <div>
@@ -27,7 +27,7 @@ function MoviePage(props: MoviePageProps): JSX.Element {
             <div className="film-card__desc">
               <h2 className="film-card__title">{films.title}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{films.genres}</span>
+                <span className="film-card__genre">{films.genre}</span>
                 <span className="film-card__year">{films.date}</span>
               </p>
 
@@ -75,7 +75,7 @@ function MoviePage(props: MoviePageProps): JSX.Element {
                     director,
                     actors,
                     runTime,
-                    genres,
+                    genre: genres,
                     released,
                   }}
                 />

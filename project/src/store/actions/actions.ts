@@ -1,8 +1,8 @@
 import {createAction} from '@reduxjs/toolkit';
 
 export const ActionType = {
-  GENRE_CHANGE: 'genres/genreChange',
-  RESET_GENRE: 'genres/genreReset',
+  GENRE_CHANGE: 'genre/genreChange',
+  RESET_GENRE: 'genre/genreReset',
   ADD_FILMS: 'films/addFilms',
   RESET_FILMS: 'films/resetFilms',
   LOAD_FILMS: 'load/loadFilms',

@@ -1,6 +1,6 @@
 export type Films = {
   title:string;
-  genres: string;
+  genre: string;
   date: number;
   id: number;
   background:string;

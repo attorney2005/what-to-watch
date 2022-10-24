@@ -2,7 +2,7 @@
 export const films = [
   {
     title: 'Fantastic Beasts: The Crimes of Grindelwald',
-    genres: 'Crime',
+    genre: 'Crime',
     date: 2020,
     id: 1,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -16,7 +16,7 @@ export const films = [
   },
   {
     title: 'Bohemian Rhapsody',
-    genres: 'Crime',
+    genre: 'Crime',
     date: 2020,
     id: 2,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -28,7 +28,7 @@ export const films = [
   },
   {
     title: 'Macbeth',
-    genres: 'Comedies',
+    genre: 'Comedies',
     date: 2011,
     id: 3,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -40,7 +40,7 @@ export const films = [
   },
   {
     title: 'Aviator',
-    genres: 'Dramas',
+    genre: 'Dramas',
     date: 2021,
     id: 4,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -52,7 +52,7 @@ export const films = [
   },
   {
     title: 'We need to talk about Kevin',
-    genres: 'Dramas',
+    genre: 'Dramas',
     date: 2022,
     id: 5,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -64,7 +64,7 @@ export const films = [
   },
   {
     title: 'What We Do in the Shadows',
-    genres: 'Dramas',
+    genre: 'Dramas',
     date: 2013,
     id: 6,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -76,7 +76,7 @@ export const films = [
   },
   {
     title: 'Revenant',
-    genres: 'Dramas',
+    genre: 'Dramas',
     date: 2015,
     id: 7,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -88,7 +88,7 @@ export const films = [
   },
   {
     title: 'Johnny English',
-    genres: 'Dramas',
+    genre: 'Dramas',
     date: 2014,
     id: 8,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -101,7 +101,7 @@ export const films = [
 
 // {
 //   title: "Shutter Island",
-//   genres: "Dramas",
+//   genre: "Dramas",
 //   date: 2011,
 //    id: 9,
 //   background: `img/bg-the-grand-budapest-hotel.jpg`,

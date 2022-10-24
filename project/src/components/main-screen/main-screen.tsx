@@ -1,5 +1,6 @@
 import MoviesList from '../movies-list/movies-list';
 import {Films} from '../../types/films';
+import Genres from "../genres-list/genres-list";
 
 interface MainScreenProps {
   films: Films
@@ -24,7 +25,7 @@ function MainScreen(props:MainScreenProps): JSX.Element {
             <div className="film-card__desc">
               <h2 className="film-card__title">{films.title}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{films.genres}</span>
+                <span className="film-card__genre">{films.genre}</span>
                 <span className="film-card__year">{films.date}</span>
               </p>
 
@@ -51,12 +52,12 @@ function MainScreen(props:MainScreenProps): JSX.Element {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <ul className="catalog__genres-list">
-            <li className="catalog__genres-item catalog__genres-item--active">
-              <a href="#" className="catalog__genres-link">{films.genres}</a>
-            </li>
-          </ul>
-
+          {/*<ul className="catalog__genres-list">*/}
+          {/*  <li className="catalog__genres-item catalog__genres-item--active">*/}
+          {/*    <a href="#" className="catalog__genres-link">{films.genre}</a>*/}
+          {/*  </li>*/}
+          {/*</ul>*/}
+          <Genres genre={genre}/>
           <div className="catalog__films-list">
             <MoviesList/>
           </div>
