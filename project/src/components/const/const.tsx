@@ -3,6 +3,7 @@ export const ALL_GENRES = `All genres`;
 export const TEXTAREA_COLOR = `rgba(255, 255, 255, 0.3)`;
 export const RATINGS_QUANTITY = 5;
 export const SHOWN_MOVIES = 8;
+export const GENRES_MAX_AMOUNT = 9;
 export const MAX_SHOWN_MOVIES_LIKE_THIS = 4;
 
 export enum AppRoute {
