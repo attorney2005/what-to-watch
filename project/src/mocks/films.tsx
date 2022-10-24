@@ -11,6 +11,8 @@ export const films = [
     preview: `https://upload.wikimedia.org/wikipedia/commons/1/19/Ziteil%2C_aerial_video.webm`,
     rating: 5,
     backgroundColor: '#ffffff',
+    director: 'Wes Anderson',
+    actors: 'Bill Murray, Edward Norton, Jude Law, Willem Dafoe and other'
   },
   {
     title: 'Bohemian Rhapsody',

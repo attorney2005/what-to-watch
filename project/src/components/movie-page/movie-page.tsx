@@ -2,14 +2,17 @@ import {Films} from "../../types/films";
 import MoviesList from "../movies-list/movies-list";
 import FilmTabs from "../film-tabs/film-tabs";
 import FilmTabsOverview from "../film-tabs-overview/film-tabs-overview";
+import FilmTabDetails from '../film-tab-details/film-tab-details'
 
-type MovieCardProps = {
+type MoviePageProps = {
   films: Films;
 }
 
-function MoviePage(props: MovieCardProps): JSX.Element {
+function MoviePage(props: MoviePageProps): JSX.Element {
   const {films} = props;
   // const {title, date, genres, src} = films;
+  const {director, rating, scoresCount, description, actors, runTime, genres, released, backgroundColor, isFavorite} =
+    films;
   return (
     <div>
       <section className="film-card film-card--full">
@@ -55,57 +58,51 @@ function MoviePage(props: MovieCardProps): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              {/*<FilmTabs>*/}
-              {/*  <FilmTabsOverview*/}
-              {/*    {...{*/}
-              {/*      title: 'Overview',*/}
-              {/*      rating,*/}
-              {/*      scoresCount,*/}
-              {/*      description,*/}
-              {/*      director,*/}
-              {/*      actors,*/}
-              {/*    }}*/}
-              {/*  />*/}
-              {/*  <FilmTabsDetails*/}
-              {/*    {...{*/}
-              {/*      title: 'Details',*/}
-              {/*      director,*/}
-              {/*      actors,*/}
-              {/*      runTime,*/}
-              {/*      genre,*/}
-              {/*      released,*/}
-              {/*    }}*/}
-              {/*  />*/}
-              {/*  <FilmTabsReviews title="Reviews" />*/}
-              {/*</FilmTabs>*/}
-              <nav className="film-nav film-card__nav">
-                <ul className="film-nav__list">
-                  <li className="film-nav__item film-nav__item--active">
-                    <a href="#" className="film-nav__link">Overview</a>
-                  </li>
-                  <li className="film-nav__item">
-                    <a href="#" className="film-nav__link">Details</a>
-                  </li>
-                  <li className="film-nav__item">
-                    <a href="#" className="film-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
-              <FilmTabsOverview/>
-              {/*<div className="film-card__text">*/}
-              {/*  <p>In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge*/}
-              {/*    Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.</p>*/}
+              <FilmTabs>
+                <FilmTabsOverview
+                  {...{
+                    title: 'Overview',
+                    rating,
+                    scoresCount,
+                    description,
+                    director,
+                    actors,
+                  }}
+                />
+                <FilmTabDetails
+                  {...{
+                    title: 'Details',
+                    director,
+                    actors,
+                    runTime,
+                    genres,
+                    released,
+                  }}
+                />
+                {/*<FilmTabsReviews title="Reviews" />*/}
+              </FilmTabs>
+              <div className="film-rating">
+                <div className="film-rating__score">8,9</div>
+                <p className="film-rating__meta">
+                  <span className="film-rating__level">Very good</span>
+                  <span className="film-rating__count">240 ratings</span>
+                </p>
+              </div>
 
-              {/*  <p>Gustave prides himself on providing first-class service to the hotel's guests, including satisfying*/}
-              {/*    the*/}
-              {/*    sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously,*/}
-              {/*    Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.</p>*/}
+              <div className="film-card__text">
+                <p>In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge
+                  Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.</p>
 
-              {/*  <p className="film-card__director"><strong>Director: Wes Anderson</strong></p>*/}
+                <p>Gustave prides himself on providing first-class service to the hotel's guests, including satisfying
+                  the
+                  sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously,
+                  Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.</p>
 
-              {/*  <p className="film-card__starring"><strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe*/}
-              {/*    and other</strong></p>*/}
-              {/*</div>*/}
+                <p className="film-card__director"><strong>Director: Wes Anderson</strong></p>
+
+                <p className="film-card__starring"><strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe
+                  and other</strong></p>
+              </div>
             </div>
           </div>
         </div>

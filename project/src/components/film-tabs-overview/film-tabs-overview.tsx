@@ -1,4 +1,5 @@
 import {Films} from "../../types/films";
+import {setFilmRatingText} from '../../utils/films';
 
 type FilmProps = Pick<Films, 'rating' | 'scoresCount' | 'description' | 'director' | 'actors'>;
 type FilmTabsOverviewProps = FilmProps & {
@@ -19,7 +20,7 @@ function FilmTabsOverview({
   <div className="film-rating">
     <div className="film-rating__score">{rating}</div>
     <p className="film-rating__meta">
-      {/*<span className="film-rating__level">{setFilmRatingText(rating)}</span>*/}
+      <span className="film-rating__level">{setFilmRatingText(rating)}</span>
       <span className="film-rating__count">{scoresCount > 0 ? `${scoresCount} ratings` : 'No ratings'}</span>
     </p>
   </div>
