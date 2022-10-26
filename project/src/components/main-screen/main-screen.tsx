@@ -1,12 +1,18 @@
 import MoviesList from '../movies-list/movies-list';
 import {Films} from '../../types/films';
+import {films} from "../../mocks/films";
 import Genres from "../genres-list/genres-list";
 
+
+
 interface MainScreenProps {
-  films: Films
+  films: Films[],
+  genre: string,
+  onGenreClick (genre: string): void,
 }
 function MainScreen(props:MainScreenProps): JSX.Element {
-  const {films} = props;
+  const { genre, onGenreClick} = props;
+
   return (
     <div>
       <section className="film-card">
@@ -57,7 +63,8 @@ function MainScreen(props:MainScreenProps): JSX.Element {
           {/*    <a href="#" className="catalog__genres-link">{films.genre}</a>*/}
           {/*  </li>*/}
           {/*</ul>*/}
-          <Genres genre={genre}/>
+
+          <Genres films={films} genre={genre} onGenreClick={onGenreClick}/>
           <div className="catalog__films-list">
             <MoviesList/>
           </div>
