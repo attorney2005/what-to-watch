@@ -1,6 +1,5 @@
 import {useState, useEffect, useRef} from 'react';
 import {smallVideoPlayer, ERROR_MESSAGE} from '../const/const';
-import * as React from "react";
 
 
 type VideoPlayerProps = {

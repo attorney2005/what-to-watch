@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {films} from '../../types/films';
+import {Films} from '../../types/films';
 import VideoPlayer from "../video-player/video-player";
+import {films} from "../../mocks/films";
 
 type PlayerProps = {
-  films: films;
+  films: Films;
   onExitButtonClick(): void;
   renderVideoPlayer(): React.ReactNode;
   isPlaying: boolean;
