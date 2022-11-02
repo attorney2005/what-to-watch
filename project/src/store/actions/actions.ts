@@ -1,82 +1,115 @@
-import {createAction} from '@reduxjs/toolkit';
+import {ActionType} from '../../types/action/action';
+// import {AuthorizationStatus} from 'configs/auth-status';
+import {Film, Films, GenreName} from '../../types/films';
+// import {Comments} from 'types/comment';
+import {filterFilmsByGenre} from '../../utils/films';
+import {FILM_PER_PAGE} from '../film-per-page';
+// import {AppRoute} from 'configs/routes';
+// import {UserInfo, UserInfoError} from 'types/user-info';
 
-export const ActionType = {
-  GENRE_CHANGE: 'genre/genreChange',
-  RESET_GENRE: 'genre/genreReset',
-  ADD_FILMS: 'films/addFilms',
-  RESET_FILMS: 'films/resetFilms',
-  LOAD_FILMS: 'load/loadFilms',
-  REQUIRED_AUTHORIZATION: 'user/requiredAuthorization',
-  LOGIN: 'user/login',
-  LOGOUT: 'use/logout',
-  REDIRECT_TO_ROUTE: 'app/redirectToRoute',
-  LOAD_SELECTED_FILM: 'load/selectedFilm',
-  LOAD_SIMILAR_FILMS: 'load/similarFilms',
-  LOAD_REVIEWS: 'load/reviews',
-  LOAD_FAVORITE_FILMS : 'load/favoriteFilms',
-  LOAD_FAVORITE_FILM: 'load/favoriteFilm',
-  LOAD_PROMO_FILM: 'load/promoFilm',
-  REVIEW_IS_LOADING: 'review/isLoading',
-};
+export const setDataLoaded = (payload: boolean) => ({
+  type: ActionType.SetDataLoaded,
+  payload,
+} as const);
 
-export const genreChange = createAction(ActionType.GENRE_CHANGE, (genre) => ({
-  payload: genre,
-}));
+export const changeGenre = (payload: GenreName) => ({
+  type: ActionType.ChangeGenre,
+  payload,
+} as const);
 
-export const resetGenre = createAction(ActionType.RESET_GENRE);
+export const setGenres = (payload: Array<GenreName>) => ({
+  type: ActionType.SetGenres,
+  payload,
+} as const);
 
-export const addFilms = createAction(ActionType.ADD_FILMS, (filmsListAmount) => ({
-  payload: filmsListAmount,
-}));
+export const setFilmsByPage = (payload: Films) => ({
+  type: ActionType.SetFilmsByPage,
+  payload,
+} as const);
 
-export const resetFilms = createAction(ActionType.RESET_FILMS);
+export const getFilmsByGenre = (films: Films, genre: GenreName, currentPage: number) => ({
+  type: ActionType.GetFilmsByGenre,
+  payload: filterFilmsByGenre(films, genre).slice(0, currentPage * FILM_PER_PAGE),
+} as const);
 
-export const loadFilms = createAction(ActionType.LOAD_FILMS, (films) => ({
-  payload: films,
-}));
+export const setLoadMoreFilms = (currentPage: number) => ({
+  type: ActionType.SetLoadMoreFilms,
+  payload: currentPage + 1,
+} as const);
 
-export const requireAuthorization = createAction(ActionType.REQUIRED_AUTHORIZATION, (status) => ({
-  payload: status,
-}));
+export const resetFilms = () => ({
+  type: ActionType.ResetFilms,
+} as const);
 
-export const submitLogout = createAction(ActionType.LOGOUT);
+export const setFilms = (payload: Films) => ({
+  type: ActionType.SetFilms,
+  payload,
+} as const);
 
-export const redirectToRoute = createAction(ActionType.REDIRECT_TO_ROUTE, (url) => ({
-  payload: url,
-}));
+export const loadFavoriteFilms = (payload: Films) => ({
+  type: ActionType.LoadFavoriteFilms,
+  payload,
+} as const);
 
-export const submitLogin = createAction(ActionType.LOGIN, (authData) => ({
-  payload: authData,
-}));
+export const setIsFavoriteLoading = (payload: boolean) => ({
+  type: ActionType.SetIsFavoriteLoading,
+  payload,
+} as const);
 
-export const loadSelectedFilm = createAction(ActionType.LOAD_SELECTED_FILM, (film) => ({
-  payload: film,
-}));
+export const setIsPromoFavoriteLoading = (payload: boolean) => ({
+  type: ActionType.SetIsPromoFavoriteLoading,
+  payload,
+} as const);
+//
+// export const requireAuthorization = (payload: AuthorizationStatus) => ({
+//   type: ActionType.RequireAuthorization,
+//   payload,
+// } as const);
+//
+// export const requireLogout = () => ({
+//   type: ActionType.RequireLogout,
+// } as const);
+//
+// export const userLoginError = (payload: UserInfoError) => ({
+//   type: ActionType.UserLoginError,
+//   payload,
+// } as const);
+//
+// export const redirectToRoute = (payload: AppRoute | string) => ({
+//   type: ActionType.RedirectToRoute,
+//   payload,
+// } as const);
+//
+// export const redirectTo404 = () => ({
+//   type: ActionType.RedirectTo404,
+// } as const);
+//
+// export const loadUserInfo = (payload: UserInfo) => ({
+//   type: ActionType.LoadUserInfo,
+//   payload,
+// } as const);
 
-export const loadSimilarFilms = createAction(ActionType.LOAD_SIMILAR_FILMS, (films) => ({
-  payload: films,
-}));
+export const loadPromoFilm = (payload: Film) => ({
+  type: ActionType.LoadPromoFilm,
+  payload,
+} as const);
 
-export const loadReviews = createAction(ActionType.LOAD_REVIEWS, (reviews) => ({
-  payload: reviews,
-}));
+export const loadCurrentFilm = (payload: Film) => ({
+  type: ActionType.LoadCurrentFilm,
+  payload,
+} as const);
 
-export const loadFavoriteFilms = createAction(ActionType.LOAD_FAVORITE_FILMS, (films) => ({
-  payload: films,
-}));
+export const loadSimilarFilms = (payload: Films) => ({
+  type: ActionType.LoadSimilarFilms,
+  payload,
+} as const);
 
-export const loadFavoriteFilm = createAction(ActionType.LOAD_FAVORITE_FILM, (film) => ({
-  payload: film,
-}));
+// export const loadFilmComments = (payload: Comments) => ({
+//   type: ActionType.LoadFilmComments,
+//   payload,
+// } as const);
 
-export const loadPromoFilm = createAction(ActionType.LOAD_PROMO_FILM, (film) => ({
-  payload: film,
-}));
-
-export const reviewIsLoading = createAction(ActionType.REVIEW_IS_LOADING, (isLoading) => ({
-  payload: isLoading,
-}));
-
-
-
-
+export const isCommentPosting = (payload: boolean) => ({
+  type: ActionType.IsCommentPosting,
+  payload,
+} as const);
