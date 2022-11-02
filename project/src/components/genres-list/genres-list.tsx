@@ -1,14 +1,14 @@
 import {GENRES_MAX_AMOUNT} from '../const/const';
-import {Films} from "../../types/films";
-import {films} from "../../mocks/films";
+import {Films} from '../../types/films';
+// import {films} from "../../mocks/films";
 
 interface GenresListProps {
   films: Films[],
   genre: string,
-  onGenreClick (genre: string): void,
+  handleGenreClick (genre: string): void,
 }
 
-function Genres({films, genre, onGenreClick}: GenresListProps) {
+function Genres({films, genre, handleGenreClick}: GenresListProps) {
   const filmGenres = films.map((film) => film.genre);
   const filteredGenres = Array.from(new Set(filmGenres));
   filteredGenres.slice(0, GENRES_MAX_AMOUNT);
@@ -20,7 +20,8 @@ function Genres({films, genre, onGenreClick}: GenresListProps) {
     <ul className="catalog__genres-list">
       {filteredGenres.map((filmGenre, i) => (
         <li className={`catalog__genres-item ${genre === filmGenre ? activeGenreClassName : ''}`}
-            onClick={() => onGenreClick(filmGenre)} key={filmGenre + 1}>
+          onClick={() => handleGenreClick(filmGenre)} key={filmGenre + 1}
+        >
           <span className="catalog__genres-link">{filmGenre}</span>
         </li>),
       )}
@@ -28,4 +29,4 @@ function Genres({films, genre, onGenreClick}: GenresListProps) {
   );
 }
 
-export default Genres
+export default Genres;

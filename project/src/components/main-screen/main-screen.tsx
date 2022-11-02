@@ -1,15 +1,29 @@
+import {useDispatch, useSelector} from 'react-redux';
 import MoviesList from '../movies-list/movies-list';
-import {Films} from '../../types/films';
-import {films} from "../../mocks/films";
-import Genres from "../genres-list/genres-list";
+import Genres from '../genres-list/genres-list';
+import {GenreName} from '../../types/films';
+import {getFilms} from '../../store/catalog-films/selectors';
+import {getCurrentGenre, getGenres} from '../../store/genres/selectors';
+import {changeGenre, getFilmsByGenre, setLoadMoreFilms} from '../../store/actions/actions';
+// import {filterFilmsByGenre} from '../../utils/films';
 
-interface MainScreenProps {
-  films: Films[],
-  genre: string,
-  onGenreClick (genre: string): void,
-}
-function MainScreen(props:MainScreenProps): JSX.Element {
-  const { genre, onGenreClick} = props;
+
+function MainScreen(): JSX.Element {
+  const films = useSelector(getFilms);
+  // const filteredFilms = useSelector(getFilteredFilms);
+  // const currentPage = useSelector(getCurrentPage);
+  const genres = useSelector(getGenres);
+  const currentGenre = useSelector(getCurrentGenre);
+
+  const dispatch = useDispatch();
+
+  // const allFilteredFilms = filterFilmsByGenre(films, currentGenre);
+
+  const handleGenreClick = (genre: GenreName) => {
+    dispatch(setLoadMoreFilms(0));
+    dispatch(changeGenre(genre));
+    dispatch(getFilmsByGenre(films, genre, 1));
+  };
   return (
     <div>
       <section className="film-card">
@@ -54,7 +68,7 @@ function MainScreen(props:MainScreenProps): JSX.Element {
       <div className="page-content">
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
-          <Genres films={films} genre={genre} onGenreClick={onGenreClick}/>
+          <Genres genres={genres} currentGenre={currentGenre} handleGenreClick={handleGenreClick}/>
           <div className="catalog__films-list">
             <MoviesList/>
           </div>

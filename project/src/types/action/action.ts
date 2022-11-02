@@ -1,6 +1,6 @@
 import {ThunkAction, ThunkDispatch} from 'redux-thunk';
 import {AxiosInstance} from 'axios';
-import {State} from 'types/state';
+import {State} from '../state';
 import {
   setDataLoaded,
   changeGenre,
