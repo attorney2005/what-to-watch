@@ -6,6 +6,7 @@ import {getFilms, getFilteredFilms,getCurrentPage} from '../../store/catalog-fil
 import {getCurrentGenre, getGenres} from '../../store/genres/selectors';
 import {changeGenre, getFilmsByGenre, setLoadMoreFilms} from '../../store/actions/actions';
 import {filterFilmsByGenre} from '../../utils/films';
+import ShowMoreButton from '../show-more-button/show-more-button';
 
 
 function MainScreen(): JSX.Element {
@@ -24,6 +25,12 @@ function MainScreen(): JSX.Element {
     dispatch(changeGenre(genre));
     dispatch(getFilmsByGenre(films, genre, 1));
   };
+
+  const onShowMoreButtonClick = () => {
+    dispatch(setLoadMoreFilms(currentPage));
+    dispatch(getFilmsByGenre(films, currentGenre, currentPage + 1));
+  };
+
   return (
     <div>
       <section className="film-card">
@@ -68,14 +75,11 @@ function MainScreen(): JSX.Element {
       <div className="page-content">
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
-          <Genres genres={genres} currentGenre={currentGenre} handleGenreClick={handleGenreClick}/>
+          <Genres films={films} genres={genres} currentGenre={currentGenre} handleGenreClick={handleGenreClick}/>
           <div className="catalog__films-list">
-            <MoviesList/>
+            <MoviesList films={filteredFilms}/>
           </div>
-
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          <ShowMoreButton onShowMoreButtonClick={onShowMoreButtonClick}/>
         </section>
       </div>
     </div>
