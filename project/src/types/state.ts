@@ -1,5 +1,8 @@
+import {AuthorizationStatus} from '../configs/auth-status';
 import {store} from '../store/index';
 import {Film, Films, GenreName} from './films';
+import {Comments} from './comment';
+import {UserInfoError, UserInfo} from './user-info';
 
 export type State = ReturnType<typeof store.getState>;
 
@@ -13,11 +16,11 @@ export type CatalogState = {
   isDataLoaded: boolean;
 };
 
-// export type UserAuthorization = {
-//   authorizationStatus: AuthorizationStatus;
-//   userInfo: UserInfo;
-//   loginError: UserInfoError;
-// };
+export type UserAuthorization = {
+  authorizationStatus: AuthorizationStatus;
+  userInfo: UserInfo;
+  loginError: UserInfoError;
+};
 
 export type Genres = {
   currentGenre: GenreName;
@@ -27,7 +30,7 @@ export type Genres = {
 export type FilmState = {
   currentFilm: Film | null;
   similarFilms: Films;
-  // filmComments: Comments;
+  filmComments: Comments;
   isCurrentFilmLoaded: boolean;
   isCommentPosting: boolean;
   isFavoriteLoading: boolean;
@@ -42,4 +45,3 @@ export type PromoFilmState = {
   isPromoFavoriteLoading: boolean;
 };
 
-// export type State = RootState;

@@ -2,22 +2,22 @@ import {useDispatch, useSelector} from 'react-redux';
 import MoviesList from '../movies-list/movies-list';
 import Genres from '../genres-list/genres-list';
 import {GenreName} from '../../types/films';
-import {getFilms} from '../../store/catalog-films/selectors';
+import {getFilms, getFilteredFilms,getCurrentPage} from '../../store/catalog-films/selectors';
 import {getCurrentGenre, getGenres} from '../../store/genres/selectors';
 import {changeGenre, getFilmsByGenre, setLoadMoreFilms} from '../../store/actions/actions';
-// import {filterFilmsByGenre} from '../../utils/films';
+import {filterFilmsByGenre} from '../../utils/films';
 
 
 function MainScreen(): JSX.Element {
   const films = useSelector(getFilms);
-  // const filteredFilms = useSelector(getFilteredFilms);
-  // const currentPage = useSelector(getCurrentPage);
+  const filteredFilms = useSelector(getFilteredFilms);
+  const currentPage = useSelector(getCurrentPage);
   const genres = useSelector(getGenres);
   const currentGenre = useSelector(getCurrentGenre);
 
   const dispatch = useDispatch();
 
-  // const allFilteredFilms = filterFilmsByGenre(films, currentGenre);
+  const allFilteredFilms = filterFilmsByGenre(films, currentGenre);
 
   const handleGenreClick = (genre: GenreName) => {
     dispatch(setLoadMoreFilms(0));

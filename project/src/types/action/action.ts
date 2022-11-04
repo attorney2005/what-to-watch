@@ -16,13 +16,13 @@ import {
   loadPromoFilm,
   loadCurrentFilm,
   loadSimilarFilms,
-  // loadFilmComments,
-  // requireAuthorization,
-  // requireLogout,
-  // redirectToRoute,
-  // redirectTo404,
-  // loadUserInfo,
-  // userLoginError,
+  loadFilmComments,
+  requireAuthorization,
+  requireLogout,
+  redirectToRoute,
+  redirectTo404,
+  loadUserInfo,
+  userLoginError,
   isCommentPosting
 } from '../../store/actions/actions';
 
@@ -39,16 +39,16 @@ export enum ActionType {
   SetIsPromoFavoriteLoading = 'promo/setIsPromoFavoriteLoading',
   SetIsFavoriteLoading = 'favorite/setIsFavoriteLoading',
   LoadFavoriteFilms = 'favorite/LoadFavoriteFilms',
-  // LoadFilmComments = 'film/loadFilmComments',
+  LoadFilmComments = 'film/loadFilmComments',
   LoadSimilarFilms = 'film/loadSimilarFilms',
   LoadCurrentFilm = 'film/loadCurrentFilm',
   IsCommentPosting = 'film/isCommentPosting',
-  // UserLoginError = 'user/userLoginError',
-  // LoadUserInfo = 'user/loadUserInfo',
-  // RequireLogout = 'user/requireLogout',
-  // RequireAuthorization = 'user/requireAuthorization',
+  UserLoginError = 'user/userLoginError',
+  LoadUserInfo = 'user/loadUserInfo',
+  RequireLogout = 'user/requireLogout',
+  RequireAuthorization = 'user/requireAuthorization',
   RedirectToRoute = 'route/redirectToRoute',
-  // RedirectTo404 = 'route/redirectTo404',
+  RedirectTo404 = 'route/redirectTo404',
 }
 
 export type Actions =
@@ -66,13 +66,13 @@ export type Actions =
   | ReturnType<typeof loadPromoFilm>
   | ReturnType<typeof loadCurrentFilm>
   | ReturnType<typeof loadSimilarFilms>
-  // | ReturnType<typeof loadFilmComments>
-  // | ReturnType<typeof requireAuthorization>
-  // | ReturnType<typeof requireLogout>
-  // | ReturnType<typeof redirectToRoute>
-  // | ReturnType<typeof redirectTo404>
-  // | ReturnType<typeof loadUserInfo>
-  // | ReturnType<typeof userLoginError>
+  | ReturnType<typeof loadFilmComments>
+  | ReturnType<typeof requireAuthorization>
+  | ReturnType<typeof requireLogout>
+  | ReturnType<typeof redirectToRoute>
+  | ReturnType<typeof redirectTo404>
+  | ReturnType<typeof loadUserInfo>
+  | ReturnType<typeof userLoginError>
   | ReturnType<typeof isCommentPosting>;
 
 export type ThunkActionResult<R = Promise<void>> = ThunkAction<R, State, AxiosInstance, Actions>;
