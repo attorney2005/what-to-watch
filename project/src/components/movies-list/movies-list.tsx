@@ -1,8 +1,11 @@
 import {films} from '../../mocks/films';
+import {Films} from "../../types/films";
 
-const movies = films;
-
-function MoviesList(): JSX.Element {
+// const movies = films;
+type MoviesListProps = {
+  movies: Films
+}
+function MoviesList({movies}:MoviesListProps): JSX.Element {
 
   return (
     <>

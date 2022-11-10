@@ -77,7 +77,7 @@ function MainScreen(): JSX.Element {
           <h2 className="catalog__title visually-hidden">Catalog</h2>
           <Genres films={films} genres={genres} currentGenre={currentGenre} handleGenreClick={handleGenreClick}/>
           <div className="catalog__films-list">
-            <MoviesList films={filteredFilms}/>
+            <MoviesList movies={filteredFilms}/>
           </div>
           <ShowMoreButton onShowMoreButtonClick={onShowMoreButtonClick}/>
         </section>
