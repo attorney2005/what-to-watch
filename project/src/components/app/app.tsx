@@ -1,3 +1,4 @@
+import {useSelector} from 'react-redux';
 import MainScreen from '../main-screen/main-screen';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import PrivateRoute from '../private-route/private-route';
@@ -12,14 +13,21 @@ import Layout from '../layout/layout';
 import {Films} from '../../types/films';
 import SmallMovieCard from '../small-movie-card/small-movie-card';
 import MoviePage from  '../movie-page/movie-page';
+import {getIsDataLoaded} from '../../store/catalog-films/selectors';
+import {getAuthorizationStatus} from '../../store/user-authorization/selectores';
+import LoadingScreen from '../../components/loading-screen/loading-screen';
+import {isCheckedAuth} from '../../utils/user';
 
 
-type AppScreenProps = {
-  films: Films[];
-}
 
-function App({films}: AppScreenProps): JSX.Element {
-  const [firstFilm] = films;
+function App(): JSX.Element {
+  const isDataLoaded = useSelector(getIsDataLoaded);
+  const authorizationStatus = useSelector(getAuthorizationStatus);
+
+  if (isCheckedAuth(authorizationStatus) || !isDataLoaded) {
+    return <LoadingScreen />;
+  }
+
   return (
     <BrowserRouter>
       <Routes>
@@ -27,7 +35,7 @@ function App({films}: AppScreenProps): JSX.Element {
           path={'/'}
           element={<Layout/>}
         >
-          <Route index element={<MainScreen films = {firstFilm as Films}/>}/>;
+          <Route index element={<MainScreen/>}/>;
           <Route path={AppRoute.Sign_in} element={<SignIn/>}/>
           <Route path={AppRoute.MyList} element={<MyList/>}/>
           <Route path={AppRoute.Film} element={<MoviePage films = {firstFilm as Films}/>}/>
@@ -38,7 +46,7 @@ function App({films}: AppScreenProps): JSX.Element {
           <Route
             path={AppRoute.MyList}
             element={
-              <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
+              <PrivateRoute authorizationStatus={AuthorizationStatus}>
                 <MyList/>
               </PrivateRoute>
             }

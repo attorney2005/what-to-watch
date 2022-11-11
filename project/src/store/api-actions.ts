@@ -27,13 +27,13 @@ import {FILM_PER_PAGE} from './film-per-page';
 import {AuthData} from '../types/auth-data';
 import {dropToken, saveToken, Token} from '../services/token';
 import {adaptAuthInfoToClient} from '../services/adapters';
-import {UserInfo} from 'types/user-info';
+import {UserInfo} from '../types/user-info';
 import {toast} from 'react-toastify';
 import {Film} from '../types/films';
 import {CommmentPost} from '../types/comment';
-import {CommentMessage} from 'types/comment-message';
-import {AuthMessage} from 'types/auth-message';
-import {DataMessage} from 'types/data-message';
+// import {CommentMessage} from 'types/comment-message';
+// import {AuthMessage} from 'types/auth-message';
+// import {DataMessage} from 'types/data-message';
 
 const TOAST_AUTOCLOSE_TIMEOUT = 3000;
 
