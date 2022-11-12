@@ -1,50 +1,98 @@
-import {Films} from "../../types/films";
-import MoviesList from "../movies-list/movies-list";
-import FilmTabs from "../film-tabs/film-tabs";
-import FilmTabsOverview from "../film-tabs-overview/film-tabs-overview";
-import FilmTabDetails from '../film-tab-details/film-tab-details'
+import clsx from 'clsx';
+import {Link, generatePath, useParams, useNavigate} from 'react-router-dom';
+import {useEffect} from 'react';
+import MoviesList from '../movies-list/movies-list';
+import FilmTabs from '../film-tabs/film-tabs';
+import FilmTabsOverview from '../film-tabs-overview/film-tabs-overview';
+import FilmTabDetails from '../film-tab-details/film-tab-details';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppRoute} from '../../configs/routes';
+import LoadingScreen from '../../components/loading-screen/loading-screen';
+import {fetchCurrentFilmAction, fetchSimilarFilmsAction} from '../../store/api-actions';
+import {getAuthorizationStatus} from '../../store/user-authorization/selectores';
+import {getCurrentFilm, getIsFavoriteLoading, getSimilarFilms} from '../../store/current-film/selectors';
+import IconPlay from '../../components/icon-play/icon-play';
+import IconInList from '../../components/icon-inlist/icon-inlist';
+import IconAdd from '../../components/icon-add/icon-add';
+import {postFavoriteFilm} from '../../store/api-actions';
 
-type MoviePageProps = {
-  films: Films;
-}
+function MoviePage(): JSX.Element {
+  const currentFilm = useSelector(getCurrentFilm);
+  const isFavoriteLoading = useSelector(getIsFavoriteLoading);
+  const similarFilms = useSelector(getSimilarFilms);
+  const authorizationStatus = useSelector(getAuthorizationStatus);
 
-function MoviePage(props: MoviePageProps): JSX.Element {
-  const {films} = props;
-  // const {title, date, genre, src} = films;
+  const {id: filmId} = useParams<{id: string}>();
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(fetchCurrentFilmAction(filmId));
+  }, [dispatch, filmId, isFavoriteLoading]);
+
+  useEffect(() => {
+    dispatch(fetchSimilarFilmsAction(filmId));
+  }, [dispatch, filmId]);
+
+  if (currentFilm === null) {
+    return <LoadingScreen />;
+  }
   const {director, rating, scoresCount, description, actors, runTime, genre, released, backgroundColor, isFavorite} =
-    films;
+    currentFilm;
+
+  const pathToFilmPlayer = generatePath(AppRoute.Player, {
+    id: currentFilm.id,
+  });
+
+  const pathToAddReview = generatePath(AppRoute.AddReview, {
+    id: currentFilm.id,
+  });
+
+  const isAuthorized = authorizationStatus === AuthorizationStatus.Auth;
+
+  const handleFavoriteClick = () => {
+    if (isAuthorized) {
+      dispatch(postFavoriteFilm(filmId, isFavorite));
+    } else {
+      navigate.push(AppRoute.SignIn);
+    }
+  };
+
   return (
     <div>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt={films.title}/>
+            <img src="img/bg-the-grand-budapest-hotel.jpg" alt={currentFilm.title}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">{films.title}</h2>
+              <h2 className="film-card__title">{currentFilm.title}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{films.genre}</span>
-                <span className="film-card__year">{films.date}</span>
+                <span className="film-card__genre">{currentFilm.genre}</span>
+                <span className="film-card__year">{currentFilm.date}</span>
               </p>
 
               <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
+                <Link to={pathToFilmPlayer} className="btn btn--play film-card__button">
+                  <IconPlay />
+                </Link>
+                <button
+                  type="button"
+                  className={clsx(['btn btn--list film-card__button', {'btn--loading': isFavoriteLoading}])}
+                  onClick={handleFavoriteClick}
+                >
+                  {isFavorite ? <IconInList /> : <IconAdd />}
                 </button>
-                <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
+                {isAuthorized && (
+                  <Link to={pathToAddReview} className="btn film-card__button">
+                    Add review
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -53,7 +101,7 @@ function MoviePage(props: MoviePageProps): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src={films.src} alt={films.title} width="218"
+              <img src={currentFilm.src} alt={currentFilm.title} width="218"
                    height="327"/>
             </div>
 
@@ -112,7 +160,7 @@ function MoviePage(props: MoviePageProps): JSX.Element {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
           <div className="catalog__films-list">
-            <MoviesList/>
+            <MoviesList movies={similarFilms} />
           </div>
         </section>
       </div>

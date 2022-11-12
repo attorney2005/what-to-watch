@@ -10,7 +10,6 @@ import AddReview from '../add-review/add-review';
 import Player from '../player/player';
 import NotFound from '../not-found/not-found';
 import Layout from '../layout/layout';
-import {Films} from '../../types/films';
 import SmallMovieCard from '../small-movie-card/small-movie-card';
 import MoviePage from  '../movie-page/movie-page';
 import {getIsDataLoaded} from '../../store/catalog-films/selectors';
@@ -38,11 +37,11 @@ function App(): JSX.Element {
           <Route index element={<MainScreen/>}/>;
           <Route path={AppRoute.Sign_in} element={<SignIn/>}/>
           <Route path={AppRoute.MyList} element={<MyList/>}/>
-          <Route path={AppRoute.Film} element={<MoviePage films = {firstFilm as Films}/>}/>
-          <Route path={AppRoute.Add_Review} element={<AddReview films = {firstFilm as Films}/>}/>
-          <Route path={AppRoute.Player} element={<Player films = {firstFilm as Films} isPlaying/>}/>
-          <Route path={AppRoute.Movies_list} element={<MoviesList films = {firstFilm as Films}/>}/>
-          <Route path={AppRoute.Small} element={<SmallMovieCard films = {firstFilm as Films} isPlaying/>}/>
+          <Route path={AppRoute.Film} element={<MoviePage/>}/>
+          <Route path={AppRoute.Add_Review} element={<AddReview/>}/>
+          <Route path={AppRoute.Player} element={<Player isPlaying/>}/>
+          <Route path={AppRoute.Movies_list} element={<MoviesList/>}/>
+          <Route path={AppRoute.Small} element={<SmallMovieCard isPlaying/>}/>
           <Route
             path={AppRoute.MyList}
             element={

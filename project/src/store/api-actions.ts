@@ -31,9 +31,9 @@ import {UserInfo} from '../types/user-info';
 import {toast} from 'react-toastify';
 import {Film} from '../types/films';
 import {CommmentPost} from '../types/comment';
-// import {CommentMessage} from 'types/comment-message';
-// import {AuthMessage} from 'types/auth-message';
-// import {DataMessage} from 'types/data-message';
+import {CommentMessage} from '../types/comment-message';
+import {AuthMessage} from '../types/auth-message';
+import {DataMessage} from '../types/data-message';
 
 const TOAST_AUTOCLOSE_TIMEOUT = 3000;
 
