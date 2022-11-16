@@ -1,6 +1,6 @@
 import {useSelector} from 'react-redux';
 import MainScreen from '../main-screen/main-screen';
-import {Route, BrowserRouter, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import PrivateRoute from '../private-route/private-route';
 import {AppRoute, AuthorizationStatus} from '../const/const';
 import SignIn from '../sign-in/sign-in';
@@ -15,8 +15,9 @@ import MoviePage from  '../movie-page/movie-page';
 import {getIsDataLoaded} from '../../store/catalog-films/selectors';
 import {getAuthorizationStatus} from '../../store/user-authorization/selectores';
 import LoadingScreen from '../../components/loading-screen/loading-screen';
+import HistoryRouter from '../history-route/history-route';
 import {isCheckedAuth} from '../../utils/user';
-
+import browserHistory from '../../browser-history';
 
 
 function App(): JSX.Element {
@@ -28,7 +29,7 @@ function App(): JSX.Element {
   }
 
   return (
-    <BrowserRouter>
+    <HistoryRouter history={browserHistory}>
       <Routes>
         <Route
           path={'/'}
@@ -53,7 +54,7 @@ function App(): JSX.Element {
           <Route path="*" element={<NotFound/>}/>
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HistoryRouter>
   );
 }
 
