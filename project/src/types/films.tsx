@@ -21,6 +21,7 @@ export type Film = {
   preview: string,
   rating: number;
   backgroundColor: string,
+  backgroundImage: string,
   scoresCount: number,
   description: string,
   director: string,

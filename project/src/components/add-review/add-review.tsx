@@ -24,21 +24,11 @@ function AddReview({
 }: AddReviewProps): JSX.Element {
 
   return (
-    <section className="film-card film-card--full"
-      style={{backgroundColor: films.backgroundColor}}
-    >
-      <div className="film-card__header">
-        <div className="film-card__bg">
-          <img src={films.background} alt={films.title}/>
-        </div>
-
-        <h1 className="visually-hidden">WTW</h1>
-
-        <div className="film-card__poster film-card__poster--small">
-          <img src={films.src} alt="The Grand Budapest Hotel poster" width="218"
-            height="327"
-          />
-        </div>
+    <>
+      <div className="film-card__poster film-card__poster--small">
+        <img src={films.src} alt="The Grand Budapest Hotel poster" width="218"
+          height="327"
+        />
       </div>
 
       <div className="add-review">
@@ -67,8 +57,7 @@ function AddReview({
                   </>
                 );
               },
-              )
-              }
+              )}
             </div>
           </div>
           <div
@@ -99,10 +88,9 @@ function AddReview({
           </div>
         </form>
         {isSendingError &&
-        <p style={{color: `red`}}>Error while sending data. Please, try again later.</p>
-        }
+        <p style={{color: 'red'}}>Error while sending data. Please, try again later.</p>}
       </div>
-    </section>
+    </>
   );
 }
 

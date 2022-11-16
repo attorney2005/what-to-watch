@@ -21,7 +21,7 @@ function Header(): JSX.Element {
         </li>
       </ul>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

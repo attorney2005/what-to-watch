@@ -24,7 +24,7 @@ function FilmTabs({children}: FilmTubsProps): JSX.Element {
         </ul>
       </nav>
     </div>
-  )
+  );
 }
 
 export default FilmTabs;

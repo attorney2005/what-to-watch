@@ -17,7 +17,7 @@ function FilmTabTitle({title, tabIndex, selectedTab, setSelectedTab}: FilmTabTit
       onClick={onClick}
       className={
         ['film-nav__item',
-          {'film-nav__item--active': selectedTab === tabIndex}
+          {'film-nav__item--active': selectedTab === tabIndex},
         ]
       }
     >

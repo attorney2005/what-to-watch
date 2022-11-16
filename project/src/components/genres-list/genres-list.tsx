@@ -1,6 +1,5 @@
 import {GENRES_MAX_AMOUNT} from '../const/const';
 import {Films} from '../../types/films';
-import {films} from "../../mocks/films";
 
 interface GenresListProps {
   films: Films,

@@ -7,7 +7,7 @@ function Layout(): JSX.Element {
     <div>
       <Header />
       <main>
-      <Outlet />
+        <Outlet />
       </main>
       <Footer />
     </div>

@@ -4,13 +4,13 @@ import {
   setFilms,
   setIsFavoriteLoading,
   setIsPromoFavoriteLoading,
-  loadFavoriteFilms,
+  // loadFavoriteFilms,
   setGenres,
   setFilmsByPage,
-  loadPromoFilm,
+  // loadPromoFilm,
   loadCurrentFilm,
   loadSimilarFilms,
-  loadFilmComments,
+  // loadFilmComments,
   requireAuthorization,
   requireLogout,
   redirectToRoute,
@@ -50,25 +50,25 @@ export const fetchFilmsAction = (): ThunkActionResult =>
     dispatch(setDataLoaded(true));
   };
 
-export const fetchFavoriteFilmsAction = (): ThunkActionResult =>
-  async (dispatch, _getState, api): Promise<void> => {
-    try {
-      const {data: favoriteFilms} = await api.get(APIRoute.Favorite);
-      const filmsData = favoriteFilms.map(adaptFilmToClient);
+// export const fetchFavoriteFilmsAction = (): ThunkActionResult =>
+//   async (dispatch, _getState, api): Promise<void> => {
+//     try {
+//       const {data: favoriteFilms} = await api.get(APIRoute.Favorite);
+//       const filmsData = favoriteFilms.map(adaptFilmToClient);
+//
+//       dispatch(loadFavoriteFilms(filmsData));
+//     } catch (error) {
+//       toast.error(DataMessage.FavoriteFilmsFailed);
+//     }
+//   };
 
-      dispatch(loadFavoriteFilms(filmsData));
-    } catch (error) {
-      toast.error(DataMessage.FavoriteFilmsFailed);
-    }
-  };
-
-export const fetchPromoFilmAction = (): ThunkActionResult =>
-  async (dispatch, _getState, api): Promise<void> => {
-    const {data} = await api.get(APIRoute.Promo);
-    const promoFilmData = adaptFilmToClient(data);
-
-    dispatch(loadPromoFilm(promoFilmData));
-  };
+// export const fetchPromoFilmAction = (): ThunkActionResult =>
+//   async (dispatch, _getState, api): Promise<void> => {
+//     const {data} = await api.get(APIRoute.Promo);
+//     const promoFilmData = adaptFilmToClient(data);
+//
+//     dispatch(loadPromoFilm(promoFilmData));
+//   };
 
 export const fetchCurrentFilmAction = (id: number | string): ThunkActionResult =>
   async (dispatch, _getState, api): Promise<void> => {
@@ -101,19 +101,19 @@ export const fetchSimilarFilmsAction = (id: number | string): ThunkActionResult 
     }
   };
 
-export const fetchFilmCommentsAction = (id: number | string): ThunkActionResult =>
-  async (dispatch, _getState, api): Promise<void> => {
-    try {
-      const filmPath = generatePath(APIRoute.FilmComments, {
-        id: Number(id),
-      });
-      const {data: serverFilmComments} = await api.get(filmPath);
-
-      dispatch(loadFilmComments(serverFilmComments));
-    } catch (error) {
-      toast.error(DataMessage.FilmCommentsFailed);
-    }
-  };
+// export const fetchFilmCommentsAction = (id: number | string): ThunkActionResult =>
+//   async (dispatch, _getState, api): Promise<void> => {
+//     try {
+//       const filmPath = generatePath(APIRoute.FilmComments, {
+//         id: Number(id),
+//       });
+//       const {data: serverFilmComments} = await api.get(filmPath);
+//
+//       dispatch(loadFilmComments(serverFilmComments));
+//     } catch (error) {
+//       toast.error(DataMessage.FilmCommentsFailed);
+//     }
+//   };
 
 export const checkAuthAction = (): ThunkActionResult =>
   async (dispatch, _getState, api) => {

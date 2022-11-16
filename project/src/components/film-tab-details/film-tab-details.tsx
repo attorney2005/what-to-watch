@@ -1,4 +1,4 @@
-import {Films} from "../../types/films";
+import {Films} from '../../types/films';
 
 type FilmProps = Pick<Films, 'director' | 'actors' | 'runTime' | 'genre' | 'released'>;
 type FilmTabsDetailsProps = FilmProps & {
@@ -6,12 +6,13 @@ type FilmTabsDetailsProps = FilmProps & {
 };
 
 function FilmTabDetails({
-     title,
-     director,
-     actors,
-     runTime,
-     genre,
-     released}: FilmTabsDetailsProps): JSX.Element {
+  title,
+  director,
+  actors,
+  runTime,
+  genre,
+  released,
+}: FilmTabsDetailsProps): JSX.Element {
 
   return (
 
@@ -46,7 +47,7 @@ function FilmTabDetails({
         </p>
       </div>
     </div>
-)
+  );
 }
 
-export default FilmTabDetails
+export default FilmTabDetails;
