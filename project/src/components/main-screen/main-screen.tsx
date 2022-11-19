@@ -18,7 +18,7 @@ function MainScreen(): JSX.Element {
 
   const dispatch = useDispatch();
 
-  const allFilteredFilms = filterFilmsByGenre(films, currentGenre);
+  // const allFilteredFilms = filterFilmsByGenre(films, currentGenre);
 
   const handleGenreClick = (genre: GenreName) => {
     dispatch(setLoadMoreFilms(0));
