@@ -22,11 +22,11 @@ function App(): JSX.Element {
   const isDataLoaded = useSelector(getIsDataLoaded);
   const authorizationStatus = useSelector(getAuthorizationStatus);
 
-  console.log(isDataLoaded)
+  // console.log(isDataLoaded)
 
-  // if (isCheckedAuth(authorizationStatus) || !isDataLoaded) {
-  //   return <LoadingScreen/>;
-  // }
+  if (isCheckedAuth(authorizationStatus) || !isDataLoaded) {
+    return <LoadingScreen/>;
+  }
 
   return (
     <Routes>

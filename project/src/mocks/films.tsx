@@ -12,7 +12,7 @@
 //     rating: 5,
 //     backgroundColor: '#ffffff',
 //     director: 'Wes Anderson',
-//     actors: 'Bill Murray, Edward Norton, Jude Law, Willem Dafoe and other'
+//     starring: 'Bill Murray, Edward Norton, Jude Law, Willem Dafoe and other'
 //   },
 //   {
 //     title: 'Bohemian Rhapsody',

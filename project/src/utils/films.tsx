@@ -9,7 +9,7 @@ export const filterFilmsByGenre = (films: Films, genre: GenreName): Films => {
   return films.filter((film: Film) => film.genre === genre);
 };
 
-// export const getGenresList = (films: Films): Array<GenreName> => [ALL_GENRES_ITEM, ...new Set(films.map((film) => film.genre))];
+// export const getGenres = (films: Films): Array<GenreName> => [ALL_GENRES_ITEM, ...new Set(films.map((film) => film.genre))];
 
 export const setFilmRatingText = (rating: number): string => {
   switch (true) {

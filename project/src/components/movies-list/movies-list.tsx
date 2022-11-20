@@ -3,12 +3,11 @@ import {Films} from '../../types/films';
 type MoviesListProps = {
   movies: Films
 }
-function MoviesList({movies}:MoviesListProps): JSX.Element {
 
+function MoviesList({movies}: MoviesListProps): JSX.Element {
   return (
     <>
       {movies.map((movie) => (
-        // console.log()
         <article className="small-film-card catalog__films-card" key={movie.id}>
           <div className="small-film-card__image">
             <img src={movie.previewImage}
@@ -21,8 +20,7 @@ function MoviesList({movies}:MoviesListProps): JSX.Element {
             </a>
           </h3>
         </article>
-      ),
-      )}
+      ))}
     </>
   );
 }

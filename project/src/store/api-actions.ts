@@ -20,9 +20,9 @@ import {
 } from './actions/actions';
 import {APIRoute, AppRoute} from '../configs/routes';
 import {ThunkActionResult} from '../types/action/action';
-import {adaptFilmToClient} from '../services/adapters';
+import {createClientFilm} from '../services/adapters';
 import {AuthorizationStatus} from '../configs/auth-status';
-import {getGenresList} from '../utils/film';
+import {getGenres} from '../utils/film';
 import {FILM_PER_PAGE} from './film-per-page';
 import {AuthData} from '../types/auth-data';
 import {dropToken, saveToken, Token} from '../services/token';
@@ -37,24 +37,27 @@ import {DataMessage} from '../types/data-message';
 
 const TOAST_AUTOCLOSE_TIMEOUT = 3000;
 
-export const fetchFilmsAction = (): ThunkActionResult =>
-  async (dispatch, _getState, api): Promise<void> => {
-    const {data: serverFilms} = await api.get(APIRoute.Films);
-    const filmsData = serverFilms.map(adaptFilmToClient);
-    const genresData = getGenresList(filmsData);
-    const initialFilmsData = filmsData.slice(0, FILM_PER_PAGE);
+export const fetchFilmsAction = (): ThunkActionResult => {
+  return async (dispatch, _getState, api) => {
+    const apiResponse = await api.get(APIRoute.Films);
+    const serverFilms = apiResponse.data;
+    const clientFilms = serverFilms.map(createClientFilm);
+    const genres = getGenres(clientFilms);
+    const firstPageFilms = clientFilms.slice(0, FILM_PER_PAGE);
 
-    dispatch(setFilms(filmsData));
-    dispatch(setGenres(genresData));
-    dispatch(setFilmsByPage(initialFilmsData));
+    dispatch(setFilms(clientFilms));
+    dispatch(setGenres(genres));
+    dispatch(setFilmsByPage(firstPageFilms));
     dispatch(setDataLoaded(true));
   };
+}
+
 
 // export const fetchFavoriteFilmsAction = (): ThunkActionResult =>
 //   async (dispatch, _getState, api): Promise<void> => {
 //     try {
 //       const {data: favoriteFilms} = await api.get(APIRoute.Favorite);
-//       const filmsData = favoriteFilms.map(adaptFilmToClient);
+//       const filmsData = favoriteFilms.map(createClientFilm);
 //
 //       dispatch(loadFavoriteFilms(filmsData));
 //     } catch (error) {
@@ -65,7 +68,7 @@ export const fetchFilmsAction = (): ThunkActionResult =>
 // export const fetchPromoFilmAction = (): ThunkActionResult =>
 //   async (dispatch, _getState, api): Promise<void> => {
 //     const {data} = await api.get(APIRoute.Promo);
-//     const promoFilmData = adaptFilmToClient(data);
+//     const promoFilmData = createClientFilm(data);
 //
 //     dispatch(loadPromoFilm(promoFilmData));
 //   };
@@ -77,7 +80,7 @@ export const fetchCurrentFilmAction = (id: number | string): ThunkActionResult =
         id: Number(id),
       });
       const {data: serverCurrentFilm} = await api.get(filmPath);
-      const filmData = adaptFilmToClient(serverCurrentFilm);
+      const filmData = createClientFilm(serverCurrentFilm);
 
       dispatch(loadCurrentFilm(filmData));
     } catch (error) {
@@ -93,7 +96,7 @@ export const fetchSimilarFilmsAction = (id: number | string): ThunkActionResult 
       });
       const {data: serverSimilarFilms} = await api.get(filmSimilarPath);
       const filteredFilmsData = serverSimilarFilms.filter((film: Film) => film.id !== id);
-      const filmsData = filteredFilmsData.map(adaptFilmToClient);
+      const filmsData = filteredFilmsData.map(createClientFilm);
 
       dispatch(loadSimilarFilms(filmsData));
     } catch (error) {
