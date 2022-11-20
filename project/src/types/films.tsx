@@ -11,13 +11,13 @@ export enum Genre {
 export type GenreName = keyof typeof Genre;
 
 export type Film = {
-  title:string;
+  name:string;
   genre: string;
   date: number;
   id: number;
   background:string;
   poster: string,
-  src: string;
+  previewImage: string;
   preview: string,
   rating: number;
   backgroundColor: string,
