@@ -68,17 +68,17 @@ function MoviePage(): JSX.Element {
       >
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src={currentFilm.backgroundImage} alt={currentFilm.title}/>
+            <img src={currentFilm.backgroundImage} alt={currentFilm.name}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">{currentFilm.title}</h2>
+              <h2 className="film-card__title">{currentFilm.name}</h2>
               <p className="film-card__meta">
                 <span className="film-card__genre">{currentFilm.genre}</span>
-                <span className="film-card__year">{currentFilm.date}</span>
+                <span className="film-card__year">{currentFilm.released}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -105,7 +105,7 @@ function MoviePage(): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src={currentFilm.src} alt={currentFilm.title} width="218"
+              <img src={currentFilm.posterImage} alt={currentFilm.name} width="218"
                 height="327"
               />
             </div>
@@ -134,31 +134,20 @@ function MoviePage(): JSX.Element {
                 />
               </FilmTabs>
               <div className="film-rating">
-                <div className="film-rating__score">8,9</div>
+                <div className="film-rating__score">{currentFilm.rating}</div>
                 <p className="film-rating__meta">
                   <span className="film-rating__level">Very good</span>
-                  <span className="film-rating__count">240 ratings</span>
+                  <span className="film-rating__count">{currentFilm.scoresCount} ratings</span>
                 </p>
               </div>
 
               <div className="film-card__text">
-                <p>In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge
-                  Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.
-                </p>
-
-                <p>Gustave prides himself on providing first-class service to the hotel's guests, including satisfying
-                  the
-                  sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously,
-                  Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.
-                </p>
-
+                <p>{currentFilm.description}</p>
                 <p className="film-card__director">
-                  <strong>Director: Wes Anderson</strong>
+                  <strong>Director: {currentFilm.director}</strong>
                 </p>
                 <p className="film-card__starring">
-                  <strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe
-                  and other
-                  </strong>
+                  <strong>Starring: {currentFilm.starring}</strong>
                 </p>
               </div>
             </div>

@@ -34,7 +34,7 @@ function App(): JSX.Element {
         path={'/'}
         element={<Layout/>}
       >
-        <Route index element={<MainScreen/>}/>;
+        <Route path={AppRoute.Main} element={<MainScreen/>}/>;
         <Route path={AppRoute.Sign_in} element={<SignIn/>}/>
         <Route path={AppRoute.MyList} element={<MyList/>}/>
         <Route path={AppRoute.Film} element={<MoviePage/>}/>
