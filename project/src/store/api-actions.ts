@@ -104,19 +104,19 @@ export const fetchSimilarFilmsAction = (id: number | string): ThunkActionResult 
     }
   };
 
-// export const fetchFilmCommentsAction = (id: number | string): ThunkActionResult =>
-//   async (dispatch, _getState, api): Promise<void> => {
-//     try {
-//       const filmPath = generatePath(APIRoute.FilmComments, {
-//         id: Number(id),
-//       });
-//       const {data: serverFilmComments} = await api.get(filmPath);
-//
-//       dispatch(loadFilmComments(serverFilmComments));
-//     } catch (error) {
-//       toast.error(DataMessage.FilmCommentsFailed);
-//     }
-//   };
+export const fetchFilmCommentsAction = (id: number | string): ThunkActionResult =>
+  async (dispatch, _getState, api): Promise<void> => {
+    try {
+      const filmPath = generatePath(APIRoute.FilmComments, {
+        id: Number(id),
+      });
+      const {data: serverFilmComments} = await api.get(filmPath);
+
+      dispatch(loadFilmComments(serverFilmComments));
+    } catch (error) {
+      toast.error(DataMessage.FilmCommentsFailed);
+    }
+  };
 
 export const checkAuthAction = (): ThunkActionResult =>
   async (dispatch, _getState, api) => {
@@ -173,7 +173,7 @@ export const postFilmComment = (id: string, payload: CommmentPost): ThunkActionR
     toast.info(CommentMessage.PostProcess);
 
     try {
-      await api.post<{token: Token}>(postCommentPath, payload);
+      await api.post<{ token: Token }>(postCommentPath, payload);
 
       toast.dismiss();
       toast.success(CommentMessage.PostSuccess, {autoClose: TOAST_AUTOCLOSE_TIMEOUT});
@@ -200,7 +200,7 @@ export const postFavoriteFilm = (id: number | string, isFavorite: boolean): Thun
     dispatch(setIsFavoriteLoading(true));
 
     try {
-      await api.post<{token: Token}>(postFavoritePath);
+      await api.post<{ token: Token }>(postFavoritePath);
       dispatch(setIsFavoriteLoading(false));
     } catch (error) {
       dispatch(setIsFavoriteLoading(false));
@@ -214,7 +214,7 @@ export const postPromoFavoriteFilm = (id: number, isFavorite: boolean): ThunkAct
     dispatch(setIsPromoFavoriteLoading(true));
 
     try {
-      await api.post<{token: Token}>(postFavoritePath);
+      await api.post<{ token: Token }>(postFavoritePath);
       dispatch(setIsPromoFavoriteLoading(false));
     } catch (error) {
       dispatch(setIsPromoFavoriteLoading(false));

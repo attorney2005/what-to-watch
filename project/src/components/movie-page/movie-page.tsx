@@ -16,6 +16,7 @@ import IconPlay from '../../components/icon-play/icon-play';
 import IconInList from '../../components/icon-inlist/icon-inlist';
 import IconAdd from '../../components/icon-add/icon-add';
 import {postFavoriteFilm} from '../../store/api-actions';
+import {FilmTabReviews} from '../film-tab-reviews/film-tab-reviews';
 
 function MoviePage(): JSX.Element {
   const currentFilm = useSelector(getCurrentFilm);
@@ -119,19 +120,20 @@ function MoviePage(): JSX.Element {
                     scoresCount,
                     description,
                     director,
-                    starring: starring,
+                    actors: starring,
                   }}
                 />
                 <FilmTabDetails
                   {...{
                     title: 'Details',
                     director,
-                    starring: starring,
+                    actors: starring,
                     runTime,
                     genre,
                     released,
                   }}
                 />
+                <FilmTabReviews title="Reviews" />
               </FilmTabs>
               <div className="film-rating">
                 <div className="film-rating__score">{currentFilm.rating}</div>
